@@ -1,5 +1,5 @@
 # Set the VM, image, and networking configuration
-VM_NAME="langflow-dev"
+VM_NAME="langinfra-dev"
 IMAGE_FAMILY="debian-11"
 IMAGE_PROJECT="debian-cloud"
 BOOT_DISK_SIZE="100GB"
@@ -46,12 +46,10 @@ STARTUP_SCRIPT=$(cat <<'EOF'
 apt -y update
 apt -y upgrade
 
-# Install Python 3 pip, Langflow, and Nginx
+# Install Python 3 pip, Langinfra, and Nginx
 apt -y install python3-pip
-pip3 install pip -U
-apt -y update
-pip3 install langflow
-langflow run --host 0.0.0.0 --port 7860
+pip install langinfra
+langinfra --host 0.0.0.0 --port 7860
 EOF
 )
 
@@ -68,7 +66,8 @@ gcloud compute instances create $VM_NAME \
   --metadata-from-file startup-script=$tempfile \
   --zone $ZONE \
   --network $VPC_NAME \
-  --subnet $SUBNET_NAME
+  --subnet $SUBNET_NAME \
+  --preemptible
 
 # Remove the temporary file after the VM is created
 rm $tempfile

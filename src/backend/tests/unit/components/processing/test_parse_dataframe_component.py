@@ -2,9 +2,9 @@ import asyncio
 
 import pandas as pd
 import pytest
-from langflow.components.processing.parse_dataframe import ParseDataFrameComponent
-from langflow.schema import DataFrame
-from langflow.schema.message import Message
+from langinfra.components.processing.parse_dataframe import ParseDataFrameComponent
+from langinfra.schema import DataFrame
+from langinfra.schema.message import Message
 
 from tests.base import ComponentTestBaseWithoutClient
 
@@ -67,9 +67,7 @@ class TestParseDataFrameComponent(ComponentTestBaseWithoutClient):
         assert result.text == ""
 
     def test_invalid_template_keys(self):
-        component = ParseDataFrameComponent(
-            df=DataFrame({"text": ["Hello"]}), template="{nonexistent_column}", sep="\n"
-        )
+        component = ParseDataFrameComponent(df=DataFrame({"text": ["Hello"]}), template="{nonexistent_column}", sep="\n")
 
         with pytest.raises(KeyError):
             component.parse_data()

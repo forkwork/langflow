@@ -159,9 +159,7 @@ class KubernetesSecretService(VariableService, Service):
         else:
             type_ = GENERIC_TYPE
 
-        await asyncio.to_thread(
-            self.kubernetes_secrets.upsert_secret, secret_name=secret_name, data={secret_key: value}
-        )
+        await asyncio.to_thread(self.kubernetes_secrets.upsert_secret, secret_name=secret_name, data={secret_key: value})
 
         variable_base = VariableCreate(
             name=name,

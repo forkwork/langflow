@@ -290,9 +290,7 @@ class ComponentToolkit:
         if isinstance(self.metadata, pd.DataFrame):
             try:
                 return {
-                    record["tags"][0]: record
-                    for record in self.metadata.to_dict(orient="records")
-                    if record.get("tags")
+                    record["tags"][0]: record for record in self.metadata.to_dict(orient="records") if record.get("tags")
                 }
             except (KeyError, IndexError) as e:
                 msg = "Error processing metadata records: " + str(e)

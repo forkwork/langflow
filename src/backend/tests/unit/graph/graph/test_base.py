@@ -2,12 +2,12 @@ import logging
 from collections import deque
 
 import pytest
-from langflow.components.inputs import ChatInput
-from langflow.components.langchain_utilities import ToolCallingAgentComponent
-from langflow.components.outputs import ChatOutput, TextOutputComponent
-from langflow.components.tools import YfinanceToolComponent
-from langflow.graph import Graph
-from langflow.graph.graph.constants import Finish
+from langinfra.components.inputs import ChatInput
+from langinfra.components.langchain_utilities import ToolCallingAgentComponent
+from langinfra.components.outputs import ChatOutput, TextOutputComponent
+from langinfra.components.tools import YfinanceToolComponent
+from langinfra.graph import Graph
+from langinfra.graph.graph.constants import Finish
 
 
 async def test_graph_not_prepared():

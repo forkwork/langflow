@@ -1,25 +1,20 @@
 
 [project]
-name = "langflow"
-version = "1.3.2"
+name = "langinfra"
+version = "1.2.1"
 description = "A Python package with a built-in web application"
 requires-python = ">=3.10,<3.14"
 license = "MIT"
 keywords = ["nlp", "langchain", "openai", "gpt", "gui"]
 readme = "README.md"
 maintainers = [
-    { name = "Carlos Coelho", email = "carlos@langflow.org" },
-    { name = "Cristhian Zanforlin", email = "cristhian.lousa@gmail.com" },
-    { name = "Gabriel Almeida", email = "gabriel@langflow.org" },
-    { name = "Igor Carvalho", email = "igorr.ackerman@gmail.com" },
-    { name = "Lucas Eduoli", email = "lucaseduoli@gmail.com" },
-    { name = "Otávio Anovazzi", email = "otavio2204@gmail.com" },
-    { name = "Rodrigo Nader", email = "rodrigo@langflow.org" },
-    { name = "Italo dos Anjos", email = "italojohnnydosanjos@gmail.com" },
+    { name = "KhulnaSoft Developer Team", email = "support@khulnasoft.com" },
+    { name = "DeepCode AI", email = "dev.sulaiman@icloud.com" },
+    { name = "Md Abdullah Al-Mamun", email = "iconmamundentist@gmail.com" }
 ]
 # Define your main dependencies here
 dependencies = [
-    "langflow-base==0.3.2",
+    "langinfra-base>=0.1.1",
     "beautifulsoup4==4.12.3",
     "google-search-results>=2.4.1,<3.0.0",
     "google-api-python-client==2.154.0",
@@ -123,6 +118,7 @@ dependencies = [
     "langchain-ibm>=0.3.8",
     "opik>=1.6.3",
     "openai>=1.68.2",
+    "codetypo>=2.3.0",
 ]
 
 [dependency-groups]
@@ -174,19 +170,19 @@ dev = [
 ]
 
 [tool.uv.sources]
-langflow-base = { workspace = true }
-langflow = { workspace = true }
+langinfra-base = { workspace = true }
+langinfra = { workspace = true }
 
 [tool.uv.workspace]
 members = ["src/backend/base", "."]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/backend/langflow"]
+packages = ["src/backend/langinfra"]
 
 
 [project.urls]
-Repository = "https://github.com/langflow-ai/langflow"
-Documentation = "https://docs.langflow.org"
+Repository = "https://github.com/langinfra-ai/langinfra"
+Documentation = "https://docs.langinfra.org"
 
 [project.optional-dependencies]
 deploy = [
@@ -224,9 +220,9 @@ postgresql = [
 ]
 
 [project.scripts]
-langflow = "langflow.__main__:main"
+langinfra = "langinfra.__main__:main"
 
-[tool.codespell]
+[tool.codetypo]
 skip = '.git,*.pdf,*.svg,*.pdf,*.yaml,*.ipynb,poetry.lock,*.min.js,*.css,package-lock.json,*.trig.,**/node_modules/**,./stuff/*,*.csv'
 # Ignore latin etc
 ignore-regex = '.*(Stati Uniti|Tense=Pres).*'
@@ -252,7 +248,7 @@ command_line = """
     --cov --cov-report=term --cov-report=html
     --instafail -ra -n auto -m "not api_key_required"
 """
-source = ["src/backend/base/langflow/"]
+source = ["src/backend/base/langinfra/"]
 omit = ["*/alembic/*", "tests/*", "*/__init__.py"]
 
 
@@ -268,8 +264,8 @@ directory = "coverage"
 
 
 [tool.ruff]
-exclude = ["src/backend/base/langflow/alembic/*", "src/frontend/tests/assets/*"]
-line-length = 120
+exclude = ["src/backend/base/langinfra/alembic/*", "src/frontend/tests/assets/*"]
+line-length = 121
 
 [tool.ruff.lint]
 pydocstyle.convention = "google"
@@ -316,7 +312,7 @@ plugins = ["pydantic.mypy"]
 follow_imports = "skip"
 disable_error_code = ["type-var"]
 namespace_packages = true
-mypy_path = "langflow"
+mypy_path = "langinfra"
 ignore_missing_imports = true
 
 [build-system]

@@ -1,11 +1,11 @@
 from unittest.mock import MagicMock
 
 import pytest
-from langflow.components.tools import WikipediaComponent
-from langflow.custom import Component
-from langflow.custom.utils import build_custom_component_template
-from langflow.schema import Data
-from langflow.schema.message import Message
+from langinfra.components.tools import WikipediaComponent
+from langinfra.custom import Component
+from langinfra.custom.utils import build_custom_component_template
+from langinfra.schema import Data
+from langinfra.schema.message import Message
 
 # Import the base test class
 from tests.base import ComponentTestBaseWithoutClient

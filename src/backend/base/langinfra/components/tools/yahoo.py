@@ -134,8 +134,7 @@ to access financial data and market information from Yahoo Finance."""
 
         if method == YahooFinanceMethod.GET_NEWS:
             data_list = [
-                Data(text=f"{article['title']}: {article['link']}", data=article)
-                for article in ast.literal_eval(result)
+                Data(text=f"{article['title']}: {article['link']}", data=article) for article in ast.literal_eval(result)
             ]
         else:
             data_list = [Data(text=result, data={"result": result})]

@@ -14,14 +14,10 @@ class RedisIndexChatMemory(LCChatMemoryComponent):
     icon = "Redis"
 
     inputs = [
-        StrInput(
-            name="host", display_name="hostname", required=True, value="localhost", info="IP address or hostname."
-        ),
+        StrInput(name="host", display_name="hostname", required=True, value="localhost", info="IP address or hostname."),
         IntInput(name="port", display_name="port", required=True, value=6379, info="Redis Port Number."),
         StrInput(name="database", display_name="database", required=True, value="0", info="Redis database."),
-        MessageTextInput(
-            name="username", display_name="Username", value="", info="The Redis user name.", advanced=True
-        ),
+        MessageTextInput(name="username", display_name="Username", value="", info="The Redis user name.", advanced=True),
         SecretStrInput(
             name="password", display_name="Password", value="", info="The password for username.", advanced=True
         ),

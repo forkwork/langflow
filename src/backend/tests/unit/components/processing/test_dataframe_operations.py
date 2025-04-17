@@ -1,6 +1,6 @@
 import pandas as pd
 import pytest
-from langflow.components.processing.dataframe_operations import DataFrameOperationsComponent
+from langinfra.components.processing.dataframe_operations import DataFrameOperationsComponent
 
 
 @pytest.fixture

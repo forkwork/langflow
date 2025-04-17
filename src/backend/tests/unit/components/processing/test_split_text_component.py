@@ -1,7 +1,7 @@
 import pytest
-from langflow.components.data import URLComponent
-from langflow.components.processing import SplitTextComponent
-from langflow.schema import Data, DataFrame
+from langinfra.components.data import URLComponent
+from langinfra.components.processing import SplitTextComponent
+from langinfra.schema import Data, DataFrame
 
 from tests.base import ComponentTestBaseWithoutClient
 
@@ -152,15 +152,11 @@ class TestSplitTextComponent(ComponentTestBaseWithoutClient):
         assert isinstance(data_frame, DataFrame), "Expected DataFrame instance"
         assert len(data_frame) == 3, f"Expected DataFrame with 3 rows, got {len(data_frame)}"
         assert list(data_frame.columns) == ["text"], f"Expected columns ['text'], got {list(data_frame.columns)}"
-        assert "First chunk" in data_frame.iloc[0]["text"], (
-            f"Expected 'First chunk', got '{data_frame.iloc[0]['text']}'"
-        )
+        assert "First chunk" in data_frame.iloc[0]["text"], f"Expected 'First chunk', got '{data_frame.iloc[0]['text']}'"
         assert "Second chunk" in data_frame.iloc[1]["text"], (
             f"Expected 'Second chunk', got '{data_frame.iloc[1]['text']}'"
         )
-        assert "Third chunk" in data_frame.iloc[2]["text"], (
-            f"Expected 'Third chunk', got '{data_frame.iloc[2]['text']}'"
-        )
+        assert "Third chunk" in data_frame.iloc[2]["text"], f"Expected 'Third chunk', got '{data_frame.iloc[2]['text']}'"
 
     def test_split_text_empty_input(self):
         """Test handling of empty input text."""

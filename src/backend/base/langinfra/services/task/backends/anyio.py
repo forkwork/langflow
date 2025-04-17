@@ -61,9 +61,7 @@ class AnyIOBackend(TaskBackend):
         self.tasks: dict[str, AnyIOTaskResult] = {}
         self._run_tasks: list[anyio.TaskGroup] = []
 
-    async def launch_task(
-        self, task_func: Callable[..., Any], *args: Any, **kwargs: Any
-    ) -> tuple[str, AnyIOTaskResult]:
+    async def launch_task(self, task_func: Callable[..., Any], *args: Any, **kwargs: Any) -> tuple[str, AnyIOTaskResult]:
         """Launch a new task in an asynchronous manner.
 
         Args:

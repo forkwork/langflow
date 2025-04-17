@@ -95,8 +95,7 @@ class ComposioAPIComponent(LCToolComponent):
             (
                 ind
                 for ind, tool in enumerate(build_config["tool_name"]["options"])
-                if tool["name"] == field_value
-                or ("validate" in field_value and tool["name"] == field_value["validate"])
+                if tool["name"] == field_value or ("validate" in field_value and tool["name"] == field_value["validate"])
             ),
             None,
         )
@@ -163,9 +162,7 @@ class ComposioAPIComponent(LCToolComponent):
                     "name": app.title(),  # TODO: Switch to app.name
                     "icon": app,  # TODO: Switch to app.name
                     "link": (
-                        build_config["tool_name"]["options"][ind]["link"]
-                        if build_config["tool_name"]["options"]
-                        else ""
+                        build_config["tool_name"]["options"][ind]["link"] if build_config["tool_name"]["options"] else ""
                     ),
                 }
                 # for app in sorted(all_apps, key=lambda x: x.name)

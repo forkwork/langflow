@@ -588,9 +588,7 @@ class StoreService(Service):
                     authorized = await self.check_api_key(store_api_key)
                 else:
                     try:
-                        updated_result = await update_components_with_user_data(
-                            result, self, store_api_key, liked=liked
-                        )
+                        updated_result = await update_components_with_user_data(result, self, store_api_key, liked=liked)
                         authorized = True
                         result = updated_result
                     except Exception:  # noqa: BLE001

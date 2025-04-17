@@ -1,26 +1,26 @@
 ---
-title: Logging options in Langflow
+title: Logging options in Langinfra
 slug: /logging
 ---
 
-Langflow uses the `loguru` library for logging.
+Langinfra uses the `loguru` library for logging.
 
 The default `log_level` is `ERROR`. Other options are `DEBUG`, `INFO`, `WARNING`, and `CRITICAL`.
 
-The default logfile is called `langflow.log`, and its location depends on your operating system.
+The default logfile is called `langinfra.log`, and its location depends on your operating system.
 
-* Linux/WSL: `\~/.cache/langflow/`
-* macOS: `/Users/\<username\>/Library/Caches/langflow/`
-* Windows: `%LOCALAPPDATA%\langflow\langflow\Cache`
+* Linux/WSL: `\~/.cache/langinfra/`
+* macOS: `/Users/\<username\>/Library/Caches/langinfra/`
+* Windows: `%LOCALAPPDATA%\langinfra\langinfra\Cache`
 
-The `LANGFLOW_LOG_ENV` controls log output and formatting. The `container` option outputs serialized JSON to stdout. The `container_csv` option outputs CSV-formatted plain text to stdout. The `default` (or not set) logging option outputs prettified output with [RichHandler](https://rich.readthedocs.io/en/stable/reference/logging.html).
+The `LANGINFRA_LOG_ENV` controls log output and formatting. The `container` option outputs serialized JSON to stdout. The `container_csv` option outputs CSV-formatted plain text to stdout. The `default` (or not set) logging option outputs prettified output with [RichHandler](https://rich.readthedocs.io/en/stable/reference/logging.html).
 
-To modify Langflow's logging configuration, add them to your `.env` file and start Langflow.
+To modify Langinfra's logging configuration, add them to your `.env` file and start Langinfra.
 
 ```text
-LANGFLOW_LOG_LEVEL=ERROR
-LANGFLOW_LOG_FILE=path/to/logfile.log
-LANGFLOW_LOG_ENV=container
+LANGINFRA_LOG_LEVEL=ERROR
+LANGINFRA_LOG_FILE=path/to/logfile.log
+LANGINFRA_LOG_ENV=container
 ```
 
-To start Langflow with the values from your .env file, start Langflow with `uv run langflow run --env-file .env`
+To start Langinfra with the values from your .env file, start Langinfra with `uv run langinfra run --env-file .env`

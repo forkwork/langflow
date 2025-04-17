@@ -1,10 +1,10 @@
 import pytest
-from langflow.components.inputs import ChatInput
-from langflow.components.outputs import ChatOutput
-from langflow.graph import Graph
-from langflow.graph.graph.constants import Finish
-from langflow.graph.state.model import create_state_model
-from langflow.template.field.base import UNDEFINED
+from langinfra.components.inputs import ChatInput
+from langinfra.components.outputs import ChatOutput
+from langinfra.graph import Graph
+from langinfra.graph.graph.constants import Finish
+from langinfra.graph.state.model import create_state_model
+from langinfra.template.field.base import UNDEFINED
 from pydantic import Field
 
 

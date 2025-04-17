@@ -321,8 +321,7 @@ class Graph:
             "target": target_id,
             "data": {
                 "sourceHandle": {
-                    "dataType": source_vertex.custom_component.name
-                    or source_vertex.custom_component.__class__.__name__,
+                    "dataType": source_vertex.custom_component.name or source_vertex.custom_component.__class__.__name__,
                     "id": source_vertex.id,
                     "name": output_name,
                     "output_types": source_vertex.get_output(output_name).types,
@@ -1486,9 +1485,7 @@ class Graph:
             msg = f"Error building Component: no result found for vertex {vertex_id}"
             raise ValueError(msg)
 
-        return VertexBuildResult(
-            result_dict=result_dict, params=params, valid=valid, artifacts=artifacts, vertex=vertex
-        )
+        return VertexBuildResult(result_dict=result_dict, params=params, valid=valid, artifacts=artifacts, vertex=vertex)
 
     def get_vertex_edges(
         self,

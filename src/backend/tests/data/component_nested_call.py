@@ -1,8 +1,8 @@
 from random import randint
 
-from langflow.custom import Component
-from langflow.inputs.inputs import IntInput, MessageTextInput
-from langflow.template.field.base import Output
+from langinfra.custom import Component
+from langinfra.inputs.inputs import IntInput, MessageTextInput
+from langinfra.template.field.base import Output
 
 
 class MultipleOutputsComponent(Component):

@@ -115,9 +115,7 @@ class ChatOllamaComponent(LCModelComponent):
             info="Comma-separated list of tokens to signal the model to stop generating text.",
             advanced=True,
         ),
-        MessageTextInput(
-            name="system", display_name="System", info="System to use for generating text.", advanced=True
-        ),
+        MessageTextInput(name="system", display_name="System", info="System to use for generating text.", advanced=True),
         BoolInput(
             name="tool_model_enabled",
             display_name="Tool Model Enabled",

@@ -3,11 +3,11 @@ title: Auto-saving
 slug: /configuration-auto-save
 ---
 
-Langflow supports both manual and auto-saving functionality.
+Langinfra supports both manual and auto-saving functionality.
 
 ## Auto-saving {#auto-saving}
 
-When Langflow is in auto-saving mode, all changes are saved automatically. Auto-save progress is indicated in the left side of the top bar.
+When Langinfra is in auto-saving mode, all changes are saved automatically. Auto-save progress is indicated in the left side of the top bar.
 
 * When a flow is being saved, a loading icon indicates that the flow is being saved in the database.
 
@@ -17,24 +17,24 @@ When Langflow is in auto-saving mode, all changes are saved automatically. Auto-
 
 ## Disable auto-saving {#environment}
 
-To disable auto-saving, 
+To disable auto-saving,
 
 1. Set an environment variable in your `.env` file.
 
 ```env
-LANGFLOW_AUTO_SAVING=false
+LANGINFRA_AUTO_SAVING=false
 ```
 
-2. Start Langflow with the values from your `.env` file.
+2. Start Langinfra with the values from your `.env` file.
 
 ```shell
-python -m langflow run --env-file .env
+python -m langinfra run --env-file .env
 ```
 
 Alternatively, disable auto-saving by passing the `--no-auto-saving` flag at startup.
 
 ```shell
-python -m langflow --no-auto-saving
+python -m langinfra --no-auto-saving
 ```
 
 ## Save a flow manually {#manual-saving}

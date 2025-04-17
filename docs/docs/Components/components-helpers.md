@@ -3,13 +3,13 @@ title: Helpers
 slug: /components-helpers
 ---
 
-# Helper components in Langflow
+# Helper components in Langinfra
 
 Helper components provide utility functions to help manage data, tasks, and other components in your flow.
 
 ## Use a helper component in a flow
 
-Chat memory in Langflow is stored either in local Langflow tables with `LCBufferMemory`, or connected to an external database.
+Chat memory in Langinfra is stored either in local Langinfra tables with `LCBufferMemory`, or connected to an external database.
 
 The **Store Message** helper component stores chat memories as [Data](/concepts-objects) objects, and the **Message History** helper component retrieves chat messages as data objects or strings.
 
@@ -39,7 +39,7 @@ The Batch Run component runs a language model over each row of a [DataFrame](/co
 ## Create List
 
 :::important
-This component is in **Legacy**, which means it is no longer in active development as of Langflow version 1.3.
+This component is in **Legacy**, which means it is no longer in active development as of Langinfra version 1.3.
 :::
 
 This component dynamically creates a record with a specified number of fields.
@@ -59,7 +59,7 @@ This component dynamically creates a record with a specified number of fields.
 
 ## Current date
 
-The Current Date component returns the current date and time in a selected timezone. This component provides a flexible way to obtain timezone-specific date and time information within a Langflow pipeline.
+The Current Date component returns the current date and time in a selected timezone. This component provides a flexible way to obtain timezone-specific date and time information within a Langinfra pipeline.
 
 ### Inputs
 
@@ -92,16 +92,16 @@ This component generates a unique ID.
 ## Message history
 
 :::info
-Prior to Langflow 1.1, this component was known as the Chat Memory component.
+Prior to Langinfra 1.1, this component was known as the Chat Memory component.
 :::
 
-This component retrieves and manages chat messages from Langflow tables or an external memory.
+This component retrieves and manages chat messages from Langinfra tables or an external memory.
 
 ### Inputs
 
 | Name | Display Name | Info |
 |------|--------------|------|
-| memory | External Memory | Retrieve messages from an external memory. If empty, it will use the Langflow tables. |
+| memory | External Memory | Retrieve messages from an external memory. If empty, it will use the Langinfra tables. |
 | sender | Sender Type | Filter by sender type. |
 | sender_name | Sender Name | Filter by sender name. |
 | n_messages | Number of Messages | Number of messages to retrieve. |
@@ -119,7 +119,7 @@ This component retrieves and manages chat messages from Langflow tables or an ex
 
 ## Message store
 
-This component stores chat messages or text into Langflow tables or an external memory.
+This component stores chat messages or text into Langinfra tables or an external memory.
 
 It provides flexibility in managing message storage and retrieval within a chat system.
 
@@ -128,7 +128,7 @@ It provides flexibility in managing message storage and retrieval within a chat 
 | Name | Display Name | Info |
 |------|--------------|------|
 | message | Message | The chat message to be stored. (Required) |
-| memory | External Memory | The external memory to store the message. If empty, it will use the Langflow tables. |
+| memory | External Memory | The external memory to store the message. If empty, it will use the Langinfra tables. |
 | sender | Sender | The sender of the message. Can be Machine or User. If empty, the current sender parameter will be used. |
 | sender_name | Sender Name | The name of the sender. Can be AI or User. If empty, the current sender parameter will be used. |
 | session_id | Session ID | The session ID of the chat. If empty, the current session ID parameter will be used. |
@@ -142,7 +142,7 @@ It provides flexibility in managing message storage and retrieval within a chat 
 ## Output Parser
 
 :::important
-This component is in **Legacy**, which means it is no longer in active development as of Langflow version 1.3.
+This component is in **Legacy**, which means it is no longer in active development as of Langinfra version 1.3.
 :::
 
 This component transforms the output of a language model into a specified format. It supports CSV format parsing, which converts LLM responses into comma-separated lists using Langchain's `CommaSeparatedListOutputParser`.

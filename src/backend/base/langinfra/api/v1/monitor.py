@@ -167,9 +167,7 @@ async def get_transactions(
 ) -> Page[TransactionTable]:
     try:
         stmt = (
-            select(TransactionTable)
-            .where(TransactionTable.flow_id == flow_id)
-            .order_by(col(TransactionTable.timestamp))
+            select(TransactionTable).where(TransactionTable.flow_id == flow_id).order_by(col(TransactionTable.timestamp))
         )
         return await paginate(session, stmt, params=params, transformer=transform_transaction_table)
     except Exception as e:

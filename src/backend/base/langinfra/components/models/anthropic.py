@@ -60,9 +60,7 @@ class AnthropicModelComponent(LCModelComponent):
         BoolInput(
             name="tool_model_enabled",
             display_name="Enable Tool Models",
-            info=(
-                "Select if you want to use models that can work with tools. If yes, only those models will be shown."
-            ),
+            info=("Select if you want to use models that can work with tools. If yes, only those models will be shown."),
             advanced=False,
             value=False,
             real_time_refresh=True,

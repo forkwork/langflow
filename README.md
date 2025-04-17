@@ -1,23 +1,23 @@
 <!-- markdownlint-disable MD030 -->
 
-![Langflow logo](./docs/static/img/langflow-logo-color-black-solid.svg)
+![Langinfra logo](./docs/static/img/langinfra-logo-color-black-solid.svg)
 
 
-[![Release Notes](https://img.shields.io/github/release/langflow-ai/langflow?style=flat-square)](https://github.com/langflow-ai/langflow/releases)
+[![Release Notes](https://img.shields.io/github/release/langinfra-ai/langinfra?style=flat-square)](https://github.com/langinfra-ai/langinfra/releases)
 [![PyPI - License](https://img.shields.io/badge/license-MIT-orange)](https://opensource.org/licenses/MIT)
-[![PyPI - Downloads](https://img.shields.io/pypi/dm/langflow?style=flat-square)](https://pypistats.org/packages/langflow)
-[![GitHub star chart](https://img.shields.io/github/stars/langflow-ai/langflow?style=flat-square)](https://star-history.com/#langflow-ai/langflow)
-[![Open Issues](https://img.shields.io/github/issues-raw/langflow-ai/langflow?style=flat-square)](https://github.com/langflow-ai/langflow/issues)
-[![Open in HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/Langflow/Langflow?duplicate=true)
-[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/langflow-ai.svg?style=social&label=Follow%20%40Langflow)](https://twitter.com/langflow)
-[![YouTube Channel Views](https://img.shields.io/youtube/channel/views/UCn2bInQrjdDYKEEmbpwblLQ)](https://www.youtube.com/@Langflow)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/langinfra?style=flat-square)](https://pypistats.org/packages/langinfra)
+[![GitHub star chart](https://img.shields.io/github/stars/langinfra-ai/langinfra?style=flat-square)](https://star-history.com/#langinfra-ai/langinfra)
+[![Open Issues](https://img.shields.io/github/issues-raw/langinfra-ai/langinfra?style=flat-square)](https://github.com/langinfra-ai/langinfra/issues)
+[![Open in HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/Langinfra/Langinfra?duplicate=true)
+[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/langinfra-ai.svg?style=social&label=Follow%20%40Langinfra)](https://twitter.com/langinfra)
+[![YouTube Channel Views](https://img.shields.io/youtube/channel/views/UCn2bInQrjdDYKEEmbpwblLQ)](https://www.youtube.com/@Langinfra)
 
 
-[Langflow](https://langflow.org) is a powerful tool for building and deploying AI-powered agents and workflows. It provides developers with both a visual authoring experience and a built-in API server that turns every agent into an API endpoint that can be integrated into applications built on any framework or stack. Langflow comes with batteries included and supports all major LLMs, vector databases and a growing library of AI tools.
+[Langinfra](https://langinfra.org) is a powerful tool for building and deploying AI-powered agents and workflows. It provides developers with both a visual authoring experience and a built-in API server that turns every agent into an API endpoint that can be integrated into applications built on any framework or stack. Langinfra comes with batteries included and supports all major LLMs, vector databases and a growing library of AI tools.
 
 ## ✨ Highlight features
 
-1. **Visual Builder** to get started quickly and iterate. 
+1. **Visual Builder** to get started quickly and iterate.
 1. **Access to Code** so developers can tweak any component using Python.
 1. **Playground** to immediately test and iterate on their flows with step-by-step control.
 1. **Multi-agent** orchestration and conversation management and retrieval.
@@ -27,45 +27,45 @@
 
 ## ⚡️ Quickstart
 
-Langflow works with Python 3.10 to 3.13.
+Langinfra works with Python 3.10 to 3.13.
 
-Install with uv **(recommended)** 
+Install with uv **(recommended)**
 
 ```shell
-uv pip install langflow
+uv pip install langinfra
 ```
 
 Install with pip
 
 ```shell
-pip install langflow
+pip install langinfra
 ```
 
 ## 📦 Deployment
 
 ### Self-managed
 
-Langflow is completely open source and you can deploy it to all major deployment clouds. Follow this [guide](https://docs.langflow.org/deployment-docker) to learn how to use Docker to deploy Langflow.
+Langinfra is completely open source and you can deploy it to all major deployment clouds. Follow this [guide](https://docs.langinfra.org/deployment-docker) to learn how to use Docker to deploy Langinfra.
 
 ### Fully-managed by DataStax
 
-DataStax Langflow is a full-managed environment with zero setup. Developers can [sign up for a free account](https://astra.datastax.com/signup?type=langflow) to get started.
+DataStax Langinfra is a full-managed environment with zero setup. Developers can [sign up for a free account](https://astra.datastax.com/signup?type=langinfra) to get started.
 
 ## ⭐ Stay up-to-date
 
-Star Langflow on GitHub to be instantly notified of new releases.
+Star Langinfra on GitHub to be instantly notified of new releases.
 
-![Star Langflow](https://github.com/user-attachments/assets/03168b17-a11d-4b2a-b0f7-c1cce69e5a2c)
+![Star Langinfra](https://github.com/user-attachments/assets/03168b17-a11d-4b2a-b0f7-c1cce69e5a2c)
 
 ## 👋 Contribute
 
-We welcome contributions from developers of all levels. If you'd like to contribute, please check our [contributing guidelines](./CONTRIBUTING.md) and help make Langflow more accessible.
+We welcome contributions from developers of all levels. If you'd like to contribute, please check our [contributing guidelines](./CONTRIBUTING.md) and help make Langinfra more accessible.
 
 ---
 
-[![Star History Chart](https://api.star-history.com/svg?repos=langflow-ai/langflow&type=Timeline)](https://star-history.com/#langflow-ai/langflow&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=langinfra-ai/langinfra&type=Timeline)](https://star-history.com/#langinfra-ai/langinfra&Date)
 
 ## ❤️ Contributors
 
-[![langflow contributors](https://contrib.rocks/image?repo=langflow-ai/langflow)](https://github.com/langflow-ai/langflow/graphs/contributors)
+[![langinfra contributors](https://contrib.rocks/image?repo=langinfra-ai/langinfra)](https://github.com/langinfra-ai/langinfra/graphs/contributors)
 

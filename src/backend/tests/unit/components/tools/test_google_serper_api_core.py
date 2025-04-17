@@ -1,8 +1,8 @@
 from unittest.mock import MagicMock, patch
 
 import pytest
-from langflow.components.tools import GoogleSerperAPICore
-from langflow.schema import DataFrame
+from langinfra.components.tools import GoogleSerperAPICore
+from langinfra.schema import DataFrame
 
 
 @pytest.fixture

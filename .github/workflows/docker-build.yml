@@ -50,7 +50,7 @@ on:
 
 env:
   POETRY_VERSION: "1.8.2"
-  TEST_TAG: "langflowai/langflow:test"
+  TEST_TAG: "langinfra/langinfra:test"
 
 jobs:
   get-version:
@@ -120,7 +120,7 @@ jobs:
         if: ${{ inputs.base_version == '' && (inputs.release_type == 'base' || inputs.release_type == 'nightly-base') }}
         id: get-version-base
         run: |
-          version=$(uv tree | grep 'langflow-base' | awk '{print $3}' | sed 's/^v//' | head -n 1)
+          version=$(uv tree | grep 'langinfra-base' | awk '{print $3}' | sed 's/^v//' | head -n 1)
           if [ -z "$version" ]; then
             echo "Failed to extract version from uv tree output"
             exit 1
@@ -131,7 +131,7 @@ jobs:
         if: ${{ inputs.main_version == '' && (inputs.release_type == 'main' || inputs.release_type == 'main-ep' || inputs.release_type == 'nightly-main') }}
         id: get-version-main
         run: |
-          version=$(uv tree | grep 'langflow' | grep -v 'langflow-base' | awk '{print $2}' | sed 's/^v//')
+          version=$(uv tree | grep 'langinfra' | grep -v 'langinfra-base' | awk '{print $2}' | sed 's/^v//')
           echo version=$version
           echo version=$version >> $GITHUB_OUTPUT
   setup:
@@ -151,25 +151,25 @@ jobs:
           fi
 
           if [[ "${{ inputs.release_type }}" == "base" || "${{ inputs.release_type }}" == "nightly-base" ]]; then
-            # LANGFLOW-BASE RELEASE
-            echo "docker_tags=langflowai/langflow${nightly_suffix}:base-${{ needs.get-version.outputs.version }},langflowai/langflow${nightly_suffix}:base-latest" >> $GITHUB_OUTPUT
-            echo "ghcr_tags=ghcr.io/langflow-ai/langflow${nightly_suffix}:base-${{ needs.get-version.outputs.version }},ghcr.io/langflow-ai/langflow${nightly_suffix}:base-latest" >> $GITHUB_OUTPUT
+            # LANGINFRA-BASE RELEASE
+            echo "docker_tags=langinfra/langinfra${nightly_suffix}:base-${{ needs.get-version.outputs.version }},langinfra/langinfra${nightly_suffix}:base-latest" >> $GITHUB_OUTPUT
+            echo "ghcr_tags=ghcr.io/langinfra-ai/langinfra${nightly_suffix}:base-${{ needs.get-version.outputs.version }},ghcr.io/langinfra-ai/langinfra${nightly_suffix}:base-latest" >> $GITHUB_OUTPUT
             echo "file=./docker/build_and_push_base.Dockerfile" >> $GITHUB_OUTPUT
           else
             if [[ "${{ inputs.pre_release }}" == "true" ]]; then
-              # LANGFLOW-MAIN PRE-RELEASE
-              echo "docker_tags=langflowai/langflow${nightly_suffix}:${{ needs.get-version.outputs.version }}" >> $GITHUB_OUTPUT
-              echo "ghcr_tags=ghcr.io/langflow-ai/langflow${nightly_suffix}:${{ needs.get-version.outputs.version }}" >> $GITHUB_OUTPUT
+              # LANGINFRA-MAIN PRE-RELEASE
+              echo "docker_tags=langinfra/langinfra${nightly_suffix}:${{ needs.get-version.outputs.version }}" >> $GITHUB_OUTPUT
+              echo "ghcr_tags=ghcr.io/langinfra-ai/langinfra${nightly_suffix}:${{ needs.get-version.outputs.version }}" >> $GITHUB_OUTPUT
               echo "file=./docker/build_and_push.Dockerfile" >> $GITHUB_OUTPUT
             elif [[ "${{ inputs.release_type }}" == "main-ep" ]]; then
-              # LANGFLOW-MAIN (ENTRYPOINT) RELEASE
-              echo "docker_tags=langflowai/langflow-ep${nightly_suffix}:${{ needs.get-version.outputs.version }},langflowai/langflow-ep${nightly_suffix}:latest" >> $GITHUB_OUTPUT
-              echo "ghcr_tags=ghcr.io/langflow-ai/langflow-ep${nightly_suffix}:${{ needs.get-version.outputs.version }},ghcr.io/langflow-ai/langflow-ep${nightly_suffix}:latest" >> $GITHUB_OUTPUT
+              # LANGINFRA-MAIN (ENTRYPOINT) RELEASE
+              echo "docker_tags=langinfra/langinfra-ep${nightly_suffix}:${{ needs.get-version.outputs.version }},langinfra/langinfra-ep${nightly_suffix}:latest" >> $GITHUB_OUTPUT
+              echo "ghcr_tags=ghcr.io/langinfra-ai/langinfra-ep${nightly_suffix}:${{ needs.get-version.outputs.version }},ghcr.io/langinfra-ai/langinfra-ep${nightly_suffix}:latest" >> $GITHUB_OUTPUT
               echo "file=./docker/build_and_push_ep.Dockerfile" >> $GITHUB_OUTPUT
             elif [[ "${{ inputs.release_type }}" == "main" || "${{ inputs.release_type }}" == "nightly-main" ]]; then
-              # LANGFLOW-MAIN RELEASE
-              echo "docker_tags=langflowai/langflow${nightly_suffix}:${{ needs.get-version.outputs.version }},langflowai/langflow${nightly_suffix}:latest" >> $GITHUB_OUTPUT
-              echo "ghcr_tags=ghcr.io/langflow-ai/langflow${nightly_suffix}:${{ needs.get-version.outputs.version }},ghcr.io/langflow-ai/langflow${nightly_suffix}:latest" >> $GITHUB_OUTPUT
+              # LANGINFRA-MAIN RELEASE
+              echo "docker_tags=langinfra/langinfra${nightly_suffix}:${{ needs.get-version.outputs.version }},langinfra/langinfra${nightly_suffix}:latest" >> $GITHUB_OUTPUT
+              echo "ghcr_tags=ghcr.io/langinfra-ai/langinfra${nightly_suffix}:${{ needs.get-version.outputs.version }},ghcr.io/langinfra-ai/langinfra${nightly_suffix}:latest" >> $GITHUB_OUTPUT
               echo "file=./docker/build_and_push.Dockerfile" >> $GITHUB_OUTPUT
             else
               echo "Invalid release type. Exiting the workflow."
@@ -249,20 +249,20 @@ jobs:
         include:
           - component: docker-backend
             dockerfile: ./docker/build_and_push_backend.Dockerfile
-            tags: langflowai/langflow-backend:${{ needs.get-version.outputs.version }},langflowai/langflow-backend:latest
-            langflow_image: langflowai/langflow:${{ needs.get-version.outputs.version }}
+            tags: langinfra/langinfra-backend:${{ needs.get-version.outputs.version }},langinfra/langinfra-backend:latest
+            langinfra_image: langinfra/langinfra:${{ needs.get-version.outputs.version }}
           - component: docker-frontend
             dockerfile: ./docker/frontend/build_and_push_frontend.Dockerfile
-            tags: langflowai/langflow-frontend:${{ needs.get-version.outputs.version }},langflowai/langflow-frontend:latest
-            langflow_image: langflowai/langflow:${{ needs.get-version.outputs.version }}
+            tags: langinfra/langinfra-frontend:${{ needs.get-version.outputs.version }},langinfra/langinfra-frontend:latest
+            langinfra_image: langinfra/langinfra:${{ needs.get-version.outputs.version }}
           - component: ghcr-backend
             dockerfile: ./docker/build_and_push_backend.Dockerfile
-            tags: ghcr.io/langflow-ai/langflow-backend:${{ needs.get-version.outputs.version }},ghcr.io/langflow-ai/langflow-backend:latest
-            langflow_image: ghcr.io/langflow-ai/langflow:${{ needs.get-version.outputs.version }}
+            tags: ghcr.io/langinfra-ai/langinfra-backend:${{ needs.get-version.outputs.version }},ghcr.io/langinfra-ai/langinfra-backend:latest
+            langinfra_image: ghcr.io/langinfra-ai/langinfra:${{ needs.get-version.outputs.version }}
           - component: ghcr-frontend
             dockerfile: ./docker/frontend/build_and_push_frontend.Dockerfile
-            tags: ghcr.io/langflow-ai/langflow-frontend:${{ needs.get-version.outputs.version }},ghcr.io/langflow-ai/langflow-frontend:latest
-            langflow_image: ghcr.io/langflow-ai/langflow:${{ needs.get-version.outputs.version }}
+            tags: ghcr.io/langinfra-ai/langinfra-frontend:${{ needs.get-version.outputs.version }},ghcr.io/langinfra-ai/langinfra-frontend:latest
+            langinfra_image: ghcr.io/langinfra-ai/langinfra:${{ needs.get-version.outputs.version }}
     steps:
       - name: Check out the code at a specific ref
         uses: actions/checkout@v4
@@ -298,7 +298,7 @@ jobs:
             context: .
             push: true
             build-args: |
-              LANGFLOW_IMAGE=${{ matrix.langflow_image }}
+              LANGINFRA_IMAGE=${{ matrix.langinfra_image }}
             file: ${{ matrix.dockerfile }}
             tags: ${{ matrix.tags }}
             # provenance: false will result in a single manifest for all platforms which makes the image pullable from arm64 machines via the emulation (e.g. Apple Silicon machines)
@@ -325,7 +325,7 @@ jobs:
 
       - name: Restart HuggingFace Spaces Build
         run: |
-          uv run ./scripts/factory_restart_space.py --space "Langflow/Langflow" --token ${{ secrets.HUGGINGFACE_API_TOKEN }}
+          uv run ./scripts/factory_restart_space.py --space "Langinfra/Langinfra" --token ${{ secrets.HUGGINGFACE_API_TOKEN }}
 
 
 

@@ -1,13 +1,13 @@
 import os
 
 import pytest
-from langflow.base.tools.component_tool import ComponentToolkit
-from langflow.components.langchain_utilities import ToolCallingAgentComponent
-from langflow.components.models import OpenAIModelComponent
-from langflow.components.outputs.chat import ChatOutput
-from langflow.components.tools.calculator import CalculatorToolComponent
-from langflow.graph import Graph
-from langflow.schema.data import Data
+from langinfra.base.tools.component_tool import ComponentToolkit
+from langinfra.components.langchain_utilities import ToolCallingAgentComponent
+from langinfra.components.models import OpenAIModelComponent
+from langinfra.components.outputs.chat import ChatOutput
+from langinfra.components.tools.calculator import CalculatorToolComponent
+from langinfra.graph import Graph
+from langinfra.schema.data import Data
 from pydantic import BaseModel
 
 

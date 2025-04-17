@@ -3,8 +3,8 @@ from pathlib import Path
 from unittest.mock import Mock, patch
 
 import pytest
-from langflow.components.data import DirectoryComponent
-from langflow.schema import Data, DataFrame
+from langinfra.components.data import DirectoryComponent
+from langinfra.schema import Data, DataFrame
 
 from tests.base import ComponentTestBaseWithoutClient
 
@@ -35,9 +35,9 @@ class TestDirectoryComponent(ComponentTestBaseWithoutClient):
             {"version": "1.1.1", "module": "data", "file_name": "directory"},
         ]
 
-    @patch("langflow.components.data.directory.parallel_load_data")
-    @patch("langflow.components.data.directory.retrieve_file_paths")
-    @patch("langflow.components.data.DirectoryComponent.resolve_path")
+    @patch("langinfra.components.data.directory.parallel_load_data")
+    @patch("langinfra.components.data.directory.retrieve_file_paths")
+    @patch("langinfra.components.data.DirectoryComponent.resolve_path")
     def test_directory_component_build_with_multithreading(
         self, mock_resolve_path, mock_retrieve_file_paths, mock_parallel_load_data
     ):
@@ -325,7 +325,7 @@ class TestDirectoryComponent(ComponentTestBaseWithoutClient):
             assert "regular" in texts
             assert "hidden" in texts
 
-    @patch("langflow.components.data.directory.parallel_load_data")
+    @patch("langinfra.components.data.directory.parallel_load_data")
     def test_directory_with_multithreading(self, mock_parallel_load):
         """Test DirectoryComponent with multithreading enabled."""
         directory_component = DirectoryComponent()
@@ -366,9 +366,7 @@ class TestDirectoryComponent(ComponentTestBaseWithoutClient):
             )
 
             # Verify results
-            assert len(results) == 2, (
-                f"Expected 2 results, got {len(results)}: {[r.data['file_path'] for r in results]}"
-            )
+            assert len(results) == 2, f"Expected 2 results, got {len(results)}: {[r.data['file_path'] for r in results]}"
             assert all(isinstance(r, Data) for r in results), (
                 f"All results should be Data objects, got types: {[type(r) for r in results]}"
             )

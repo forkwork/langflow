@@ -1,8 +1,8 @@
-from langflow.components.inputs import ChatInput
-from langflow.components.outputs import ChatOutput
-from langflow.components.prompts import PromptComponent
-from langflow.graph import Graph
-from langflow.schema.message import Message
+from langinfra.components.inputs import ChatInput
+from langinfra.components.outputs import ChatOutput
+from langinfra.components.prompts import PromptComponent
+from langinfra.graph import Graph
+from langinfra.schema.message import Message
 
 from tests.integration.utils import run_flow
 

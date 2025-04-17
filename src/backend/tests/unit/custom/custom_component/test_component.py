@@ -1,13 +1,13 @@
 from typing import Any
 
 import pytest
-from langflow.components.crewai import CrewAIAgentComponent, SequentialTaskComponent
-from langflow.components.custom_component import CustomComponent
-from langflow.components.inputs import ChatInput
-from langflow.components.outputs import ChatOutput
-from langflow.custom.utils import update_component_build_config
-from langflow.schema import dotdict
-from langflow.template import Output
+from langinfra.components.crewai import CrewAIAgentComponent, SequentialTaskComponent
+from langinfra.components.custom_component import CustomComponent
+from langinfra.components.inputs import ChatInput
+from langinfra.components.outputs import ChatOutput
+from langinfra.custom.utils import update_component_build_config
+from langinfra.schema import dotdict
+from langinfra.template import Output
 from typing_extensions import override
 
 

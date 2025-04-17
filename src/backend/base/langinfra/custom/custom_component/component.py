@@ -1147,9 +1147,7 @@ class Component(CustomComponent):
             return (
                 tools
                 if enabled is None
-                else [
-                    tool for tool in tools if any(enabled_name in [tool.name, *tool.tags] for enabled_name in enabled)
-                ]
+                else [tool for tool in tools if any(enabled_name in [tool.name, *tool.tags] for enabled_name in enabled)]
             )
 
         # Ensure metadata is a list of dicts
@@ -1277,9 +1275,7 @@ class Component(CustomComponent):
         if self._should_skip_message(message):
             return message
         if (hasattr(self, "graph") and self.graph.session_id) and (message is not None and not message.session_id):
-            session_id = (
-                UUID(self.graph.session_id) if isinstance(self.graph.session_id, str) else self.graph.session_id
-            )
+            session_id = UUID(self.graph.session_id) if isinstance(self.graph.session_id, str) else self.graph.session_id
             message.session_id = session_id
         if hasattr(message, "flow_id") and isinstance(message.flow_id, str):
             message.flow_id = UUID(message.flow_id)

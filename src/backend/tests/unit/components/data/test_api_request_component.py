@@ -7,8 +7,8 @@ import httpx
 import pytest
 import respx
 from httpx import Response
-from langflow.components.data import APIRequestComponent
-from langflow.schema import Data, DataFrame
+from langinfra.components.data import APIRequestComponent
+from langinfra.schema import Data, DataFrame
 
 from tests.base import ComponentTestBaseWithoutClient
 

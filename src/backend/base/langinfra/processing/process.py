@@ -119,9 +119,7 @@ async def run_graph(
     )
 
 
-def validate_input(
-    graph_data: dict[str, Any], tweaks: Tweaks | dict[str, str | dict[str, Any]]
-) -> list[dict[str, Any]]:
+def validate_input(graph_data: dict[str, Any], tweaks: Tweaks | dict[str, str | dict[str, Any]]) -> list[dict[str, Any]]:
     if not isinstance(graph_data, dict) or not isinstance(tweaks, dict):
         msg = "graph_data and tweaks should be dictionaries"
         raise TypeError(msg)

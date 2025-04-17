@@ -4,7 +4,7 @@ from uuid import uuid4
 import pytest
 from fastapi import HTTPException, status
 from httpx import AsyncClient
-from langflow.services.variable.constants import CREDENTIAL_TYPE, GENERIC_TYPE
+from langinfra.services.variable.constants import CREDENTIAL_TYPE, GENERIC_TYPE
 
 
 @pytest.fixture
@@ -77,9 +77,7 @@ async def test_create_variable__variable_name_cannot_be_empty(client: AsyncClien
 
 
 @pytest.mark.usefixtures("active_user")
-async def test_create_variable__variable_value_cannot_be_empty(
-    client: AsyncClient, generic_variable, logged_in_headers
-):
+async def test_create_variable__variable_value_cannot_be_empty(client: AsyncClient, generic_variable, logged_in_headers):
     generic_variable["value"] = ""
 
     response = await client.post("api/v1/variables/", json=generic_variable, headers=logged_in_headers)
@@ -94,7 +92,7 @@ async def test_create_variable__httpexception(client: AsyncClient, generic_varia
     status_code = 418
     generic_message = "I'm a teapot"
 
-    with mock.patch("langflow.services.auth.utils.encrypt_api_key") as m:
+    with mock.patch("langinfra.services.auth.utils.encrypt_api_key") as m:
         m.side_effect = HTTPException(status_code=status_code, detail=generic_message)
         response = await client.post("api/v1/variables/", json=generic_variable, headers=logged_in_headers)
         result = response.json()
@@ -107,7 +105,7 @@ async def test_create_variable__httpexception(client: AsyncClient, generic_varia
 async def test_create_variable__exception(client: AsyncClient, generic_variable, logged_in_headers):
     generic_message = "Generic error message"
 
-    with mock.patch("langflow.services.auth.utils.encrypt_api_key") as m:
+    with mock.patch("langinfra.services.auth.utils.encrypt_api_key") as m:
         m.side_effect = Exception(generic_message)
         response = await client.post("api/v1/variables/", json=generic_variable, headers=logged_in_headers)
         result = response.json()

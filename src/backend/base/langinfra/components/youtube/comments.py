@@ -102,9 +102,7 @@ class YouTubeCommentsComponent(Component):
 
         return reply_data
 
-    def _process_comment(
-        self, item: dict, *, include_metrics: bool = True, include_replies: bool = False
-    ) -> list[dict]:
+    def _process_comment(self, item: dict, *, include_metrics: bool = True, include_replies: bool = False) -> list[dict]:
         """Process a single comment thread."""
         comment = item["snippet"]["topLevelComment"]["snippet"]
         comment_id = item["snippet"]["topLevelComment"]["id"]

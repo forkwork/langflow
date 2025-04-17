@@ -1,10 +1,10 @@
 ---
-title: Develop an application in Langflow
+title: Develop an application in Langinfra
 slug: /develop-application
 ---
 
-Follow this guide to learn how to build an application using Langflow.
-You'll learn how to set up a project directory, manage dependencies, configure environment variables, and package your Langflow application in a Docker image.
+Follow this guide to learn how to build an application using Langinfra.
+You'll learn how to set up a project directory, manage dependencies, configure environment variables, and package your Langinfra application in a Docker image.
 
 To deploy your application to Docker or Kubernetes, see [Deployment](/deployment-docker).
 
@@ -13,11 +13,11 @@ To deploy your application to Docker or Kubernetes, see [Deployment](/deployment
 Create a project directory similar to this one.
 
 ```text
-LANGFLOW-APPLICATION/
+LANGINFRA-APPLICATION/
 ├── flows/
 │   ├── flow1.json
 │   └── flow2.json
-├── langflow-config-dir/
+├── langinfra-config-dir/
 ├── docker.env
 ├── Dockerfile
 ├── README.md
@@ -25,15 +25,15 @@ LANGFLOW-APPLICATION/
 
 The `/flows` folder holds the flows you want to host.
 
-The `langflow-config-dir` is referenced in the Dockerfile as the location for Langflow's configuration files, database, and logs. For more information, see [Environment variables](/environment-variables).
+The `langinfra-config-dir` is referenced in the Dockerfile as the location for Langinfra's configuration files, database, and logs. For more information, see [Environment variables](/environment-variables).
 
-The `docker.env` file is copied to the Docker image as a `.env` file in the container root. This file controls Langflow's behavior, holds secrets, and configures runtime settings like authentication, database storage, API keys, and server configurations.
+The `docker.env` file is copied to the Docker image as a `.env` file in the container root. This file controls Langinfra's behavior, holds secrets, and configures runtime settings like authentication, database storage, API keys, and server configurations.
 
 The `Dockerfile` controls how your image is built. This file copies your flows and `docker.env` files to your image.
 
 ### Package management
 
-The base Docker image includes the Langflow core dependencies by using `langflowai/langflow:latest` as the parent image.
+The base Docker image includes the Langinfra core dependencies by using `langinfra/langinfra:latest` as the parent image.
 
 If your application requires additional dependencies, create a `pyproject.toml` file and add the dependencies to the file. For more information, see [Install custom dependencies](/install-custom-dependencies).
 
@@ -50,15 +50,15 @@ The `docker.env` file is a `.env` file loaded into your Docker image.
 The following example `docker.env` file defines auto-login behavior and which port to expose. Your environment may vary. For more information, see [Environment variables](/environment-variables).
 
 ```text
-LANGFLOW_AUTO_LOGIN=true
-LANGFLOW_SAVE_DB_IN_CONFIG_DIR=true
-LANGFLOW_BASE_URL=http://0.0.0.0:7860
+LANGINFRA_AUTO_LOGIN=true
+LANGINFRA_SAVE_DB_IN_CONFIG_DIR=true
+LANGINFRA_BASE_URL=http://0.0.0.0:7860
 OPENAI_API_KEY=sk-...
 ```
 
-This example uses Langflow's default [SQLite](https://www.sqlite.org/) database for storage, and configures no authentication.
+This example uses Langinfra's default [SQLite](https://www.sqlite.org/) database for storage, and configures no authentication.
 
-To modify Langflow's default memory behavior, see [Memory](/memory).
+To modify Langinfra's default memory behavior, see [Memory](/memory).
 
 To add authentication to your server, see [Authentication](/configuration-authentication).
 
@@ -66,58 +66,58 @@ To add authentication to your server, see [Authentication](/configuration-authen
 
 Add your flow's `.JSON` files to the `/flows` folder.
 
-To export your flows from Langflow, see [Flows](/concepts-flows).
+To export your flows from Langinfra, see [Flows](/concepts-flows).
 
 Optionally, add any custom components to a `/components` folder, and specify the path in your `docker.env`.
 
-## Package your Langflow project in a Docker image
+## Package your Langinfra project in a Docker image
 
 1. Add the following commands to your Dockerfile.
 
 ```dockerfile
-# Use the latest version of langflow
-FROM langflowai/langflow:latest
+# Use the latest version of langinfra
+FROM langinfra/langinfra:latest
 
 # Create accessible folders and set the working directory in the container
 RUN mkdir /app/flows
-RUN mkdir /app/langflow-config-dir
+RUN mkdir /app/langinfra-config-dir
 WORKDIR /app
 
-# Copy the flows, optional components, and langflow-config-dir folders to the container
+# Copy the flows, optional components, and langinfra-config-dir folders to the container
 COPY flows /app/flows
 COPY components /app/components
-COPY langflow-config-dir /app/langflow-config-dir
+COPY langinfra-config-dir /app/langinfra-config-dir
 
 # copy docker.env file
 COPY docker.env /app/.env
 
 # Set environment variables
 ENV PYTHONPATH=/app
-ENV LANGFLOW_LOAD_FLOWS_PATH=/app/flows
-ENV LANGFLOW_CONFIG_DIR=/app/langflow-config-dir
-ENV LANGFLOW_COMPONENTS_PATH=/app/components
-ENV LANGFLOW_LOG_ENV=container
+ENV LANGINFRA_LOAD_FLOWS_PATH=/app/flows
+ENV LANGINFRA_CONFIG_DIR=/app/langinfra-config-dir
+ENV LANGINFRA_COMPONENTS_PATH=/app/components
+ENV LANGINFRA_LOG_ENV=container
 
 # Command to run the server
 EXPOSE 7860
-CMD ["langflow", "run", "--backend-only", "--env-file","/app/.env","--host", "0.0.0.0", "--port", "7860"]
+CMD ["langinfra", "run", "--backend-only", "--env-file","/app/.env","--host", "0.0.0.0", "--port", "7860"]
 ```
 
-The environment variables set in the Dockerfile specify resource paths and allow Langflow to access them. Values from `docker.env` override the values set in the Dockerfile. Additionally, logging behavior is set here with `ENV LANGFLOW_LOG_ENV=container` for serialized JSON to `stdout`, for tracking your application's behavior in a containerized environment. For more information on configuring logs, see [Logging](/logging).
+The environment variables set in the Dockerfile specify resource paths and allow Langinfra to access them. Values from `docker.env` override the values set in the Dockerfile. Additionally, logging behavior is set here with `ENV LANGINFRA_LOG_ENV=container` for serialized JSON to `stdout`, for tracking your application's behavior in a containerized environment. For more information on configuring logs, see [Logging](/logging).
 
 :::note
-Optionally, remove the `--backend-only` flag from the startup command to start Langflow with the frontend enabled.
-For more on `--backend-only` mode and the Langflow Docker image, see [Docker](/deployment-docker).
+Optionally, remove the `--backend-only` flag from the startup command to start Langinfra with the frontend enabled.
+For more on `--backend-only` mode and the Langinfra Docker image, see [Docker](/deployment-docker).
 :::
 
 2. Save your Dockerfile.
 3. Build the Docker image:
 ```bash
-docker build -t langflow-pokedex:1.2.0 .
+docker build -t langinfra-pokedex:1.2.0 .
 ```
 4. Run the Docker container:
 ```bash
-docker run -p 7860:7860 langflow-pokedex:1.2.0
+docker run -p 7860:7860 langinfra-pokedex:1.2.0
 ```
 
 :::note

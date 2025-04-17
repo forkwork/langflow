@@ -160,9 +160,7 @@ class BatchRunComponent(Component):
             # Process batches and track progress
             responses_with_idx = [
                 (idx, response)
-                for idx, response in zip(
-                    range(len(conversations)), await model.abatch(list(conversations)), strict=True
-                )
+                for idx, response in zip(range(len(conversations)), await model.abatch(list(conversations)), strict=True)
             ]
 
             # Sort by index to maintain order

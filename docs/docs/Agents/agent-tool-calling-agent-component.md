@@ -21,7 +21,7 @@ Learn how to build a flow starting with the **Tool calling agent** component, an
 
 ## Create a problem-solving agent with AgentComponent
 
-Create a problem-solving agent in Langflow, starting with the **Tool calling agent**.
+Create a problem-solving agent in Langinfra, starting with the **Tool calling agent**.
 
 1. Click **New Flow**, and then click **Blank Flow**.
 2. Click and drag an **Agent** component to your workspace.
@@ -105,15 +105,15 @@ An agent can use custom components as tools.
 Here's an example text analyzer for sentiment analysis.
 
 ```python
-from langflow.custom import Component
-from langflow.io import MessageTextInput, Output
-from langflow.schema import Data
+from langinfra.custom import Component
+from langinfra.io import MessageTextInput, Output
+from langinfra.schema import Data
 import re
 
 class TextAnalyzerComponent(Component):
     display_name = "Text Analyzer"
     description = "Analyzes and transforms input text."
-    documentation: str = "http://docs.langflow.org/components/custom"
+    documentation: str = "http://docs.langinfra.org/components/custom"
     icon = "chart-bar"
     name = "TextAnalyzerComponent"
 
@@ -133,16 +133,16 @@ class TextAnalyzerComponent(Component):
 
     def analyze_text(self) -> Data:
         text = self.input_text
-        
+
         # Perform text analysis
         word_count = len(text.split())
         char_count = len(text)
         sentence_count = len(re.findall(r'\w+[.!?]', text))
-        
+
         # Transform text
         reversed_text = text[::-1]
         uppercase_text = text.upper()
-        
+
         analysis_result = {
             "original_text": text,
             "word_count": word_count,
@@ -151,7 +151,7 @@ class TextAnalyzerComponent(Component):
             "reversed_text": reversed_text,
             "uppercase_text": uppercase_text
         }
-        
+
         data = Data(value=analysis_result)
         self.status = data
         return data
@@ -174,7 +174,7 @@ Current Date and Time: I can retrieve the current date and time in various time 
 
 If the component you want to use as a tool doesn't have a **Tool Mode** button, add `tool_mode=True` to one of the component's inputs, and connect the new **Toolset** output to the agent's **Tools** input.
 
-Langflow supports **Tool Mode** for the following data types:
+Langinfra supports **Tool Mode** for the following data types:
 
 * `DataInput`
 * `DataFrameInput`

@@ -1,7 +1,7 @@
 import pytest
-from langflow.components.processing.parser import ParserComponent
-from langflow.schema import Data, DataFrame
-from langflow.schema.message import Message
+from langinfra.components.processing.parser import ParserComponent
+from langinfra.schema import Data, DataFrame
+from langinfra.schema.message import Message
 
 from tests.base import ComponentTestBaseWithoutClient
 

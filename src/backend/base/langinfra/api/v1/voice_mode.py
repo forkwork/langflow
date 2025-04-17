@@ -1052,9 +1052,7 @@ async def flow_tts_websocket(
                                     if not line:
                                         continue
                                     event_data = json.loads(line)
-                                    await client_websocket.send_json(
-                                        {"type": "flow.build.progress", "data": event_data}
-                                    )
+                                    await client_websocket.send_json({"type": "flow.build.progress", "data": event_data})
                                     if event_data.get("event") == "end_vertex":
                                         text = (
                                             event_data.get("data", {})

@@ -1,5 +1,5 @@
 import pytest
-from langflow.components.astra_assistants import (
+from langinfra.components.astra_assistants import (
     AssistantsCreateAssistant,
     AssistantsCreateThread,
     AssistantsGetAssistantName,

@@ -2,11 +2,11 @@ from datetime import datetime, timezone
 
 import pytest
 from httpx import AsyncClient
-from langflow.services.auth.utils import create_super_user, get_password_hash
-from langflow.services.database.models.user import UserUpdate
-from langflow.services.database.models.user.model import User
-from langflow.services.database.utils import session_getter
-from langflow.services.deps import get_db_service, get_settings_service
+from langinfra.services.auth.utils import create_super_user, get_password_hash
+from langinfra.services.database.models.user import UserUpdate
+from langinfra.services.database.models.user.model import User
+from langinfra.services.database.utils import session_getter
+from langinfra.services.deps import get_db_service, get_settings_service
 from sqlmodel import select
 
 
@@ -65,9 +65,7 @@ async def test_user_waiting_for_approval(client):
         stmt = select(User).where(User.username == username)
         existing_user = (await session.exec(stmt)).first()
         if existing_user:
-            pytest.fail(
-                f"User {username} already exists before the test. Database URL: {get_db_service().database_url}"
-            )
+            pytest.fail(f"User {username} already exists before the test. Database URL: {get_db_service().database_url}")
 
     # Create a user that is not active and has never logged in
     async with session_getter(get_db_service()) as session:

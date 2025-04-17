@@ -1,6 +1,6 @@
 import pytest
-from langflow.components.processing.data_to_dataframe import DataToDataFrameComponent
-from langflow.schema import Data, DataFrame
+from langinfra.components.processing.data_to_dataframe import DataToDataFrameComponent
+from langinfra.schema import Data, DataFrame
 
 from tests.base import ComponentTestBaseWithoutClient
 

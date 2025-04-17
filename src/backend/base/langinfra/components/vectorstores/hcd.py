@@ -149,8 +149,7 @@ class HCDVectorStoreComponent(LCVectorStoreComponent):
         FloatInput(
             name="search_score_threshold",
             display_name="Search Score Threshold",
-            info="Minimum similarity score threshold for search results. "
-            "(when using 'Similarity with score threshold')",
+            info="Minimum similarity score threshold for search results. (when using 'Similarity with score threshold')",
             value=0,
             advanced=True,
         ),
@@ -197,9 +196,7 @@ class HCDVectorStoreComponent(LCVectorStoreComponent):
             from astrapy.info import CollectionVectorServiceOptions
 
             dict_options = self.embedding.get("collection_vector_service_options", {})
-            dict_options["authentication"] = {
-                k: v for k, v in dict_options.get("authentication", {}).items() if k and v
-            }
+            dict_options["authentication"] = {k: v for k, v in dict_options.get("authentication", {}).items() if k and v}
             dict_options["parameters"] = {k: v for k, v in dict_options.get("parameters", {}).items() if k and v}
             embedding_dict = {
                 "collection_vector_service_options": CollectionVectorServiceOptions.from_dict(dict_options)

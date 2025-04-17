@@ -1,7 +1,7 @@
 import pytest
-from langflow.components.processing.regex import RegexExtractorComponent
-from langflow.schema import Data
-from langflow.schema.message import Message
+from langinfra.components.processing.regex import RegexExtractorComponent
+from langinfra.schema import Data
+from langinfra.schema.message import Message
 
 from tests.base import ComponentTestBaseWithoutClient
 

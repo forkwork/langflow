@@ -1,5 +1,5 @@
-from langflow.processing.process import process_tweaks
-from langflow.services.deps import get_session_service
+from langinfra.processing.process import process_tweaks
+from langinfra.services.deps import get_session_service
 
 
 def test_no_tweaks():

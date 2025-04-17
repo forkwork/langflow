@@ -152,9 +152,7 @@ class PythonCodeStructuredTool(LCToolComponent):
         for from_module in modules["from_imports"]:
             for alias in from_module.names:
                 import_code += f"global {alias.name}\n"
-            import_code += (
-                f"from {from_module.module} import {', '.join([alias.name for alias in from_module.names])}\n"
-            )
+            import_code += f"from {from_module.module} import {', '.join([alias.name for alias in from_module.names])}\n"
         exec(import_code, globals())
         exec(self.tool_code, globals(), local_namespace)
 

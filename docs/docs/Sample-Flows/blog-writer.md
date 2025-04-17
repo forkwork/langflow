@@ -12,13 +12,13 @@ OpenAI uses this loaded data to generate a blog post, as instructed by the **Tex
 
 ## Prerequisites
 
-- [Langflow installed and running](/get-started-installation)
+- [Langinfra installed and running](/get-started-installation)
 - [OpenAI API key created](https://platform.openai.com/)
 
 
 ## Create the blog writer flow
 
-1. From the Langflow dashboard, click **New Flow**.
+1. From the Langinfra dashboard, click **New Flow**.
 2. Select **Blog Writer**.
 3. The **Blog Writer** flow is created.
 
@@ -50,6 +50,6 @@ The `{instructions}` value is received from the **Text input** component, and on
 ### Run the blog writer flow
 
 1. Click the **Playground** button, and then click **Run Flow**.
-A blog post about Langflow is generated, with content sourced from `langflow.org` and `docs.langflow.org`.
+A blog post about Langinfra is generated, with content sourced from `langinfra.org` and `docs.langinfra.org`.
 2. To write about something different, change the values in the **URL** component and adjust the instructions on the left side bar of the **Playground**. Try again and see what the LLM constructs.
 

@@ -3,19 +3,19 @@ import operator
 from textwrap import dedent
 
 import pytest
-from langflow.components.data import FileComponent
-from langflow.components.embeddings import OpenAIEmbeddingsComponent
-from langflow.components.inputs import ChatInput
-from langflow.components.models import OpenAIModelComponent
-from langflow.components.outputs import ChatOutput
-from langflow.components.processing import ParseDataComponent
-from langflow.components.processing.split_text import SplitTextComponent
-from langflow.components.prompts import PromptComponent
-from langflow.components.vectorstores import AstraDBVectorStoreComponent
-from langflow.graph import Graph
-from langflow.graph.graph.constants import Finish
-from langflow.schema import Data
-from langflow.schema.dataframe import DataFrame
+from langinfra.components.data import FileComponent
+from langinfra.components.embeddings import OpenAIEmbeddingsComponent
+from langinfra.components.inputs import ChatInput
+from langinfra.components.models import OpenAIModelComponent
+from langinfra.components.outputs import ChatOutput
+from langinfra.components.processing import ParseDataComponent
+from langinfra.components.processing.split_text import SplitTextComponent
+from langinfra.components.prompts import PromptComponent
+from langinfra.components.vectorstores import AstraDBVectorStoreComponent
+from langinfra.graph import Graph
+from langinfra.graph.graph.constants import Finish
+from langinfra.schema import Data
+from langinfra.schema.dataframe import DataFrame
 
 
 @pytest.fixture
@@ -27,9 +27,7 @@ def ingestion_graph():
     text_splitter = SplitTextComponent(_id="text-splitter-123")
     text_splitter.set(data_inputs=file_component.load_files)
     openai_embeddings = OpenAIEmbeddingsComponent(_id="openai-embeddings-123")
-    openai_embeddings.set(
-        openai_api_key="sk-123", openai_api_base="https://api.openai.com/v1", openai_api_type="openai"
-    )
+    openai_embeddings.set(openai_api_key="sk-123", openai_api_base="https://api.openai.com/v1", openai_api_type="openai")
 
     vector_store = AstraDBVectorStoreComponent(_id="ingestion-vector-store-123")
 

@@ -165,9 +165,7 @@ async def create_flow(
             # if the column has id in it, we want the other column
             column = columns.split(",")[1] if "id" in columns.split(",")[0] else columns.split(",")[0]
 
-            raise HTTPException(
-                status_code=400, detail=f"{column.capitalize().replace('_', ' ')} must be unique"
-            ) from e
+            raise HTTPException(status_code=400, detail=f"{column.capitalize().replace('_', ' ')} must be unique") from e
         if isinstance(e, HTTPException):
             raise
         raise HTTPException(status_code=500, detail=str(e)) from e
@@ -359,9 +357,7 @@ async def update_flow(
             # or UNIQUE constraint failed: flow.name
             # if the column has id in it, we want the other column
             column = columns.split(",")[1] if "id" in columns.split(",")[0] else columns.split(",")[0]
-            raise HTTPException(
-                status_code=400, detail=f"{column.capitalize().replace('_', ' ')} must be unique"
-            ) from e
+            raise HTTPException(status_code=400, detail=f"{column.capitalize().replace('_', ' ')} must be unique") from e
 
         if hasattr(e, "status_code"):
             raise HTTPException(status_code=e.status_code, detail=str(e)) from e
@@ -446,9 +442,7 @@ async def upload_file(
             # if the column has id in it, we want the other column
             column = columns.split(",")[1] if "id" in columns.split(",")[0] else columns.split(",")[0]
 
-            raise HTTPException(
-                status_code=400, detail=f"{column.capitalize().replace('_', ' ')} must be unique"
-            ) from e
+            raise HTTPException(status_code=400, detail=f"{column.capitalize().replace('_', ' ')} must be unique") from e
         if isinstance(e, HTTPException):
             raise
         raise HTTPException(status_code=500, detail=str(e)) from e
