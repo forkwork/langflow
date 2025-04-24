@@ -3,16 +3,16 @@ from collections import deque
 from typing import TYPE_CHECKING
 
 import pytest
-from langflow.components.helpers.memory import MemoryComponent
-from langflow.components.inputs import ChatInput
-from langflow.components.models import OpenAIModelComponent
-from langflow.components.outputs import ChatOutput
-from langflow.components.prompts import PromptComponent
-from langflow.graph import Graph
-from langflow.graph.graph.constants import Finish
+from langinfra.components.helpers.memory import MemoryComponent
+from langinfra.components.inputs import ChatInput
+from langinfra.components.models import OpenAIModelComponent
+from langinfra.components.outputs import ChatOutput
+from langinfra.components.prompts import PromptComponent
+from langinfra.graph import Graph
+from langinfra.graph.graph.constants import Finish
 
 if TYPE_CHECKING:
-    from langflow.graph.graph.schema import GraphDump
+    from langinfra.graph.graph.schema import GraphDump
 
 
 @pytest.fixture
@@ -67,9 +67,7 @@ def test_memory_chatbot(memory_chatbot_graph):
 
 def test_memory_chatbot_dump_structure(memory_chatbot_graph: Graph):
     # Now we run step by step
-    graph_dict = memory_chatbot_graph.dump(
-        name="Memory Chatbot", description="A memory chatbot", endpoint_name="membot"
-    )
+    graph_dict = memory_chatbot_graph.dump(name="Memory Chatbot", description="A memory chatbot", endpoint_name="membot")
     assert isinstance(graph_dict, dict)
     # Test structure
     assert "data" in graph_dict

@@ -5,7 +5,7 @@ slug: /concepts-publish
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Langflow provides several ways to publish and integrate your flows into external applications. Whether you want to expose your flow via API endpoints, embed it as a chat widget in your website, or share it as a public playground, this guide covers the options available for making your flows accessible to users.
+Langinfra provides several ways to publish and integrate your flows into external applications. Whether you want to expose your flow via API endpoints, embed it as a chat widget in your website, or share it as a public playground, this guide covers the options available for making your flows accessible to users.
 
 ## API access
 
@@ -63,7 +63,7 @@ For example, changing the **Chat Input** component's `input_value` changes that 
 
 ### Send files to your flow with the API
 
-For information on sending files to the Langflow API, see [API examples](/api-reference-api-examples#upload-image-files).
+For information on sending files to the Langinfra API, see [API examples](/api-reference-api-examples#upload-image-files).
 
 ### Webhook cURL
 
@@ -83,14 +83,14 @@ To test the **Webhook** component in your flow, see the [Webhook component](/com
 The **Embed into site** tab displays code that can be inserted in the `<body>` of your HTML to interact with your flow.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js""></script>
+<script src="https://cdn.jsdelivr.net/gh/logspace-ai/langinfra-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js""></script>
 
-  <langflow-chat
+  <langinfra-chat
     window_title="Basic Prompting"
     flow_id="801abb1e-19b9-4278-9632-179b6d84f126"
     host_url="http://localhost:7860"
 
-  ></langflow-chat>
+  ></langinfra-chat>
 ```
 
 ### Embed the chat widget with React
@@ -98,7 +98,7 @@ The **Embed into site** tab displays code that can be inserted in the `<body>` o
 To embed the Chat Widget using React, add this `<script>` tag to the React `index.html` file inside a `<body>`tag.
 
 ```javascript
-<script src="https://cdn.jsdelivr.net/gh/langflow-ai/langflow-embedded-chat@main/dist/build/static/js/bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/langinfra-ai/langinfra-embedded-chat@main/dist/build/static/js/bundle.min.js"></script>
 ```
 
 1. Declare your web component and encapsulate it in a React component.
@@ -107,7 +107,7 @@ To embed the Chat Widget using React, add this `<script>` tag to the React `inde
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      "langflow-chat": any;
+      "langinfra-chat": any;
     }
   }
 }
@@ -115,12 +115,12 @@ declare global {
 export default function ChatWidget({ className }) {
   return (
     <div className={className}>
-      <langflow-chat
+      <langinfra-chat
         chat_inputs='{"your_key":"value"}'
         chat_input_field="your_chat_key"
         flow_id="your_flow_id"
-        host_url="langflow_url"
-      ></langflow-chat>
+        host_url="langinfra_url"
+      ></langinfra-chat>
     </div>
   );
 }
@@ -132,13 +132,13 @@ export default function ChatWidget({ className }) {
 To use the chat widget in Angular, add this `<script>` tag to the Angular `index.html` file inside a `<body>` tag.
 
 ```javascript
-<script src="https://cdn.jsdelivr.net/gh/langflow-ai/langflow-embedded-chat@main/dist/build/static/js/bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/langinfra-ai/langinfra-embedded-chat@main/dist/build/static/js/bundle.min.js"></script>
 ```
 
 When you use a custom web component in an Angular template, the Angular compiler might show a warning when it doesn't recognize the custom elements by default. To suppress this warning, add `CUSTOM_ELEMENTS_SCHEMA` to the module's `@NgModule.schemas`.
-`CUSTOM_ELEMENTS_SCHEMA` is a built-in schema that allows custom elements in your Angular templates, and suppresses warnings related to unknown elements like `langflow-chat`.
+`CUSTOM_ELEMENTS_SCHEMA` is a built-in schema that allows custom elements in your Angular templates, and suppresses warnings related to unknown elements like `langinfra-chat`.
 
-1. Open the module file `.module.ts` where you want to add the `langflow-chat` web component.
+1. Open the module file `.module.ts` where you want to add the `langinfra-chat` web component.
 2. Import `CUSTOM_ELEMENTS_SCHEMA` at the top of the `.module.ts` file:
 
 `import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';`
@@ -160,10 +160,10 @@ When you use a custom web component in an Angular template, the Angular compiler
 export class YourModule { }
 ```
 
-4. In your Angular project, find the component belonging to the module where `CUSTOM_ELEMENTS_SCHEMA` was added. Inside the template, add the `langflow-chat` tag to include the chat widget in your component's view:
+4. In your Angular project, find the component belonging to the module where `CUSTOM_ELEMENTS_SCHEMA` was added. Inside the template, add the `langinfra-chat` tag to include the chat widget in your component's view:
 
 ```javascript
-<langflow-chat  chat_inputs='{"your_key":"value"}'  chat_input_field="your_chat_key"  flow_id="your_flow_id"  host_url="langflow_url"></langflow-chat>
+<langinfra-chat  chat_inputs='{"your_key":"value"}'  chat_input_field="your_chat_key"  flow_id="your_flow_id"  host_url="langinfra_url"></langinfra-chat>
 ```
 
 ### Chat widget configuration
@@ -200,9 +200,9 @@ Props with the type JSON need to be passed as stringified JSONs, with the format
 
 ## Shareable playground
 
-The **Shareable playground** exposes your Langflow application's **Playground** at the `/public_flow/{flow-id}` endpoint.
+The **Shareable playground** exposes your Langinfra application's **Playground** at the `/public_flow/{flow-id}` endpoint.
 
 You can share this endpoint publicly using a sharing platform like [Ngrok](https://ngrok.com/docs/getting-started/?os=macos) or [zrok](https://docs.zrok.io/docs/getting-started).
 
-If you're using **Datastax Langflow**, you can share the URL with any users within your **Organization**.
+If you're using **Datastax Langinfra**, you can share the URL with any users within your **Organization**.
 

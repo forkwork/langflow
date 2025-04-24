@@ -6,9 +6,9 @@ import openai
 import pytest
 from langchain_nvidia_ai_endpoints import ChatNVIDIA
 from langchain_openai import ChatOpenAI
-from langflow.components.helpers.structured_output import StructuredOutputComponent
-from langflow.helpers.base_model import build_model_from_schema
-from langflow.inputs.inputs import TableInput
+from langinfra.components.helpers.structured_output import StructuredOutputComponent
+from langinfra.helpers.base_model import build_model_from_schema
+from langinfra.inputs.inputs import TableInput
 from pydantic import BaseModel
 
 from tests.base import ComponentTestBaseWithoutClient
@@ -54,7 +54,7 @@ class TestStructuredOutputComponent(ComponentTestBaseWithoutClient):
             system_prompt="Test system prompt",
         )
 
-        with patch("langflow.components.helpers.structured_output.get_chat_result", mock_get_chat_result):
+        with patch("langinfra.components.helpers.structured_output.get_chat_result", mock_get_chat_result):
             result = component.build_structured_output_base()
             assert isinstance(result, list)
             assert result == [{"field": "value"}]
@@ -96,9 +96,7 @@ class TestStructuredOutputComponent(ComponentTestBaseWithoutClient):
                 "name": "type",
                 "display_name": "Type",
                 "type": "str",
-                "description": (
-                    "Indicate the data type of the output field (e.g., str, int, float, bool, list, dict)."
-                ),
+                "description": ("Indicate the data type of the output field (e.g., str, int, float, bool, list, dict)."),
             },
             {
                 "name": "multiple",
@@ -133,9 +131,7 @@ class TestStructuredOutputComponent(ComponentTestBaseWithoutClient):
                 "name": "type",
                 "display_name": "Type",
                 "type": "str",
-                "description": (
-                    "Indicate the data type of the output field (e.g., str, int, float, bool, list, dict)."
-                ),
+                "description": ("Indicate the data type of the output field (e.g., str, int, float, bool, list, dict)."),
             },
             {
                 "name": "multiple",
@@ -175,7 +171,7 @@ class TestStructuredOutputComponent(ComponentTestBaseWithoutClient):
         with pytest.raises(ValueError, match="Invalid type: invalid_type"):
             component.build_structured_output()
 
-    @patch("langflow.components.helpers.structured_output.get_chat_result")
+    @patch("langinfra.components.helpers.structured_output.get_chat_result")
     def test_nested_output_schema(self, mock_get_chat_result):
         class ChildModel(BaseModel):
             child: str = "value"
@@ -209,7 +205,7 @@ class TestStructuredOutputComponent(ComponentTestBaseWithoutClient):
         assert isinstance(result, list)
         assert result == [{"parent": {"child": "value"}}]
 
-    @patch("langflow.components.helpers.structured_output.get_chat_result")
+    @patch("langinfra.components.helpers.structured_output.get_chat_result")
     def test_large_input_value(self, mock_get_chat_result):
         large_input = "Test input " * 1000
 

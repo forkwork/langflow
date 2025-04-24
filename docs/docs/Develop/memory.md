@@ -3,19 +3,19 @@ title: Memory management options
 slug: /memory
 ---
 
-Langflow provides flexible memory management options for storage and retrieval.
+Langinfra provides flexible memory management options for storage and retrieval.
 
-This page details the following memory configuration options in Langflow.
+This page details the following memory configuration options in Langinfra.
 
-- [Use local Langflow database tables](#local-langflow-database-tables)
+- [Use local Langinfra database tables](#local-langinfra-database-tables)
 - [Store messages in local memory](#store-messages-in-local-memory)
 - [Configure external memory](#configure-external-memory)
 - [Configure the external database connection](#configure-the-external-database-connection)
 - [Configure cache memory](#configure-cache-memory)
 
-## Local Langflow database tables
+## Local Langinfra database tables
 
-The default storage option in Langflow is a [SQLite](https://www.sqlite.org/) database located at `langflow/src/backend/base/langflow/langflow.db`. The following tables are stored in `langflow.db`:
+The default storage option in Langinfra is a [SQLite](https://www.sqlite.org/) database located at `langinfra/src/backend/base/langinfra/langinfra.db`. The following tables are stored in `langinfra.db`:
 
 • **User** - Stores user account information including credentials, permissions, and profiles. For more information, see [Authentication](/configuration-authentication).
 
@@ -33,13 +33,13 @@ The default storage option in Langflow is a [SQLite](https://www.sqlite.org/) da
 
 • **VertexBuild** - Tracks the build status of individual nodes within flows. For more information, see [Run a flow in the playground](/concepts-playground).
 
-For more information, see the database models in the [source code](https://github.com/langflow-ai/langflow/tree/main/src/backend/base/langflow/services/database/models).
+For more information, see the database models in the [source code](https://github.com/langinfra-ai/langinfra/tree/main/src/backend/base/langinfra/services/database/models).
 
 ## Store messages in local memory
 
-To store messages in local Langflow memory, add a [Message store](/components-helpers#message-store) component to your flow.
+To store messages in local Langinfra memory, add a [Message store](/components-helpers#message-store) component to your flow.
 
-To retrieve messages from local Langflow memory, add a [Message history](/components-helpers#message-history) component to your flow.
+To retrieve messages from local Langinfra memory, add a [Message history](/components-helpers#message-history) component to your flow.
 
 For an example of using local chat memory, see the [Memory chatbot](/memory-chatbot) starter flow.
 
@@ -47,14 +47,14 @@ To store or retrieve chat messages from external memory, connect the **External 
 
 ![Sample Flow storing Chat Memory in AstraDB](/img/astra_db_chat_memory_rounded.png)
 
-If external storage is connected to a memory helper component, no chat messages are stored in local Langflow memory.
+If external storage is connected to a memory helper component, no chat messages are stored in local Langinfra memory.
 
 ## Configure external memory
 
-To replace the default Langflow SQLite database with another database, modify the `LANGFLOW_DATABASE_URL` and start Langflow with this value.
+To replace the default Langinfra SQLite database with another database, modify the `LANGINFRA_DATABASE_URL` and start Langinfra with this value.
 
 ```
-LANGFLOW_DATABASE_URL=postgresql://user:password@localhost:5432/langflow
+LANGINFRA_DATABASE_URL=postgresql://user:password@localhost:5432/langinfra
 ```
 
 For an example, see [Configure an external PostgreSQL database](/configuration-custom-database).
@@ -64,8 +64,8 @@ For an example, see [Configure an external PostgreSQL database](/configuration-c
 The following settings allow you to fine-tune your database connection pool and timeout settings:
 
 ```
-LANGFLOW_DB_CONNECTION_SETTINGS='{"pool_size": 20, "max_overflow": 30, "pool_timeout": 30, "pool_pre_ping": true, "pool_recycle": 1800, "echo": false}'
-LANGFLOW_DB_CONNECT_TIMEOUT=20
+LANGINFRA_DB_CONNECTION_SETTINGS='{"pool_size": 20, "max_overflow": 30, "pool_timeout": 30, "pool_pre_ping": true, "pool_recycle": 1800, "echo": false}'
+LANGINFRA_DB_CONNECT_TIMEOUT=20
 ```
 
 - `pool_size`: Maximum number of database connections to keep in the pool (default: 20)
@@ -74,11 +74,11 @@ LANGFLOW_DB_CONNECT_TIMEOUT=20
 - `pool_pre_ping`: If true, the pool tests connections for liveness upon each checkout (default: true)
 - `pool_recycle`: Number of seconds after which a connection is automatically recycled (default: 1800, or 30 minutes)
 - `echo`: If true, SQL queries are logged for debugging purposes (default: false)
-- `LANGFLOW_DB_CONNECT_TIMEOUT`: Maximum number of seconds to wait when establishing a new database connection (default: 20)
+- `LANGINFRA_DB_CONNECT_TIMEOUT`: Maximum number of seconds to wait when establishing a new database connection (default: 20)
 
 ## Configure cache memory
 
-Langflow provides multiple caching options that can be configured using the `LANGFLOW_CACHE_TYPE` environment variable.
+Langinfra provides multiple caching options that can be configured using the `LANGINFRA_CACHE_TYPE` environment variable.
 
 | Type | Description | Storage Location | Persistence |
 |------|-------------|------------------|-------------|
@@ -88,6 +88,6 @@ Langflow provides multiple caching options that can be configured using the `LAN
 | `redis` | Distributed cache | Redis server | Persists in Redis |
 
 *System cache directory locations:
-- Linux/WSL: `~/.cache/langflow/`
-- macOS: `/Users/<username>/Library/Caches/langflow/`
-- Windows: `%LOCALAPPDATA%\langflow\langflow\Cache`
+- Linux/WSL: `~/.cache/langinfra/`
+- macOS: `/Users/<username>/Library/Caches/langinfra/`
+- Windows: `%LOCALAPPDATA%\langinfra\langinfra\Cache`

@@ -40,9 +40,9 @@ test(
       'def python_function(text: str) -> st:    """This is a default python function that returns the input text"""    return text';
 
     const customComponentCode = `from typing import Callable
-from langflow.field_typing import Code
-from langflow.interface.custom.custom_component import CustomComponent
-from langflow.interface.custom.utils import get_function
+from langinfra.field_typing import Code
+from langinfra.interface.custom.custom_component import CustomComponent
+from langinfra.interface.custom.utils import get_function
 
 class PythonFunctionComponent(CustomComponent):
     def python_function(text: str) -> str:

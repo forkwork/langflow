@@ -1,15 +1,15 @@
-# from langflow.field_typing import Data
+# from langinfra.field_typing import Data
 from typing import Any
 
-from langflow.custom import Component
-from langflow.io import BoolInput, MessageTextInput, Output
-from langflow.schema import Data
+from langinfra.custom import Component
+from langinfra.io import BoolInput, MessageTextInput, Output
+from langinfra.schema import Data
 
 
 class DynamicOutputComponent(Component):
     display_name = "Dynamic Output Component"
     description = "Use as a template to create your own component."
-    documentation: str = "https://docs.langflow.org/components-custom-components"
+    documentation: str = "https://docs.langinfra.org/components-custom-components"
     icon = "custom_components"
     name = "DynamicOutputComponent"
 

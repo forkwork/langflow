@@ -3,7 +3,7 @@ title: Data
 slug: /components-data
 ---
 
-# Data components in Langflow
+# Data components in Langinfra
 
 Data components load data from a source into your flow.
 
@@ -85,7 +85,7 @@ To load a document, follow these steps:
 The loaded file name appears in the component.
 
 The default maximum supported file size is 100 MB.
-To modify this value, see [--max-file-size-upload](/environment-variables#LANGFLOW_MAX_FILE_SIZE_UPLOAD).
+To modify this value, see [--max-file-size-upload](/environment-variables#LANGINFRA_MAX_FILE_SIZE_UPLOAD).
 
 ### Inputs
 
@@ -139,7 +139,7 @@ Archive formats (for bundling multiple files):
 
 :::info
 Google components are available in the **Components** menu under **Bundles**.
-For more information, see [Integrate Google OAuth with Langflow](/integrations-setup-google-oauth-langflow).
+For more information, see [Integrate Google OAuth with Langinfra](/integrations-setup-google-oauth-langinfra).
 :::
 
 This component loads emails from Gmail using provided credentials and filters.
@@ -164,7 +164,7 @@ For more on creating a service account JSON, see [Service Account JSON](https://
 
 :::info
 Google components are available in the **Components** menu under **Bundles**.
-For more information, see [Integrate Google OAuth with Langflow](/integrations-setup-google-oauth-langflow).
+For more information, see [Integrate Google OAuth with Langinfra](/integrations-setup-google-oauth-langinfra).
 :::
 
 This component loads documents from Google Drive using provided credentials and a single document ID.
@@ -188,7 +188,7 @@ For more on creating a service account JSON, see [Service Account JSON](https://
 
 :::info
 Google components are available in the **Components** menu under **Bundles**.
-For more information, see [Integrate Google OAuth with Langflow](/integrations-setup-google-oauth-langflow).
+For more information, see [Integrate Google OAuth with Langinfra](/integrations-setup-google-oauth-langinfra).
 :::
 
 This component searches Google Drive files using provided credentials and query parameters.

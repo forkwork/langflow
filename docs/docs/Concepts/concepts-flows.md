@@ -3,29 +3,29 @@ title: Flows
 slug: /concepts-flows
 ---
 
-Flows in Langflow are fully serializable and can be saved and loaded from the file system. In this guide, we'll explore how to import and export flows.
+Flows in Langinfra are fully serializable and can be saved and loaded from the file system. In this guide, we'll explore how to import and export flows.
 
 ## Import Flow
 
-If you've already got a Langflow JSON file, import it into Langflow by clicking on the project name and choosing **Import Flow**.
+If you've already got a Langinfra JSON file, import it into Langinfra by clicking on the project name and choosing **Import Flow**.
 
 ![Import Flow](../../static/img/flows/import.gif)
 
 Once imported, your flow is ready to use.
 
 :::tip
-You can drag and drop Langflow JSON files directly from your file system into the Langflow window to import a flow, even into the initial Langflow splash screen.
+You can drag and drop Langinfra JSON files directly from your file system into the Langinfra window to import a flow, even into the initial Langinfra splash screen.
 :::
 
 ## Export Flow
 
-The option to export a flow is available in the same menu as shown above. Once exported as JSON, you can import your flow into another Langflow instance.
+The option to export a flow is available in the same menu as shown above. Once exported as JSON, you can import your flow into another Langinfra instance.
 
-## Langflow JSON file contents
+## Langinfra JSON file contents
 
-Langflow JSON files contain [nodes](#nodes) and [edges](#edges) that describe components and connections, and [additional metadata](#additional-metadata-and-project-information) that describe the flow.
+Langinfra JSON files contain [nodes](#nodes) and [edges](#edges) that describe components and connections, and [additional metadata](#additional-metadata-and-project-information) that describe the flow.
 
-For an example Langflow JSON file, examine the [Basic Prompting.json](https://github.com/langflow-ai/langflow/blob/main/src/backend/base/langflow/initial_setup/starter_projects/Basic%20Prompting.json) file in the Langflow repository.
+For an example Langinfra JSON file, examine the [Basic Prompting.json](https://github.com/langinfra-ai/langinfra/blob/main/src/backend/base/langinfra/initial_setup/starter_projects/Basic%20Prompting.json) file in the Langinfra repository.
 
 ### Nodes
 

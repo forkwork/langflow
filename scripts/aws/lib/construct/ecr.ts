@@ -28,8 +28,8 @@ export class EcrRepository extends Construct {
     }
 
     // Backend ECR リポジトリ作成
-    this.ecrBackEndRepository = new ecr.Repository(scope, 'LangflowBackEndRepository', {
-      repositoryName: 'langflow-backend-repository',
+    this.ecrBackEndRepository = new ecr.Repository(scope, 'LanginfraBackEndRepository', {
+      repositoryName: 'langinfra-backend-repository',
       removalPolicy: RemovalPolicy.RETAIN,
       imageScanOnPush: true,
     })

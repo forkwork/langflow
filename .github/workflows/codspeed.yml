@@ -11,7 +11,7 @@ on:
     paths:
       - "src/backend/base/**"
       - "src/backend/tests/performance/**"
-      - "!src/backend/base/langflow/components/**"
+      - "!src/backend/base/langinfra/components/**"
   workflow_dispatch:
 
 concurrency:

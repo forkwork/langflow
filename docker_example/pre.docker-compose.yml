@@ -1,30 +1,30 @@
 version: "3.8"
 
 services:
-  langflow:
-    image: langflowai/langflow:1.0-alpha
+  langinfra:
+    image: langinfra/langinfra:1.0-alpha
     ports:
       - "7860:7860"
     depends_on:
       - postgres
     environment:
-      - LANGFLOW_DATABASE_URL=postgresql://langflow:langflow@postgres:5432/langflow
+      - LANGINFRA_DATABASE_URL=postgresql://langinfra:langinfra@postgres:5432/langinfra
       # This variable defines where the logs, file storage, monitor data and secret keys are stored.
-      - LANGFLOW_CONFIG_DIR=app/langflow
+      - LANGINFRA_CONFIG_DIR=app/langinfra
     volumes:
-      - langflow-data:/app/langflow
+      - langinfra-data:/app/langinfra
 
   postgres:
     image: postgres:16
     environment:
-      POSTGRES_USER: langflow
-      POSTGRES_PASSWORD: langflow
-      POSTGRES_DB: langflow
+      POSTGRES_USER: langinfra
+      POSTGRES_PASSWORD: langinfra
+      POSTGRES_DB: langinfra
     ports:
       - "5432:5432"
     volumes:
-      - langflow-postgres:/var/lib/postgresql/data
+      - langinfra-postgres:/var/lib/postgresql/data
 
 volumes:
-  langflow-postgres:
-  langflow-data:
+  langinfra-postgres:
+  langinfra-data:

@@ -1,8 +1,8 @@
-from langflow.base.tools.component_tool import ComponentToolkit
-from langflow.custom import Component
+from langinfra.base.tools.component_tool import ComponentToolkit
+from langinfra.custom import Component
 
 # Import all input types
-from langflow.io import (
+from langinfra.io import (
     BoolInput,
     DataFrameInput,
     DataInput,
@@ -20,14 +20,14 @@ from langflow.io import (
     StrInput,
     TableInput,
 )
-from langflow.schema import Data
+from langinfra.schema import Data
 from pydantic import BaseModel
 
 
 class AllInputsComponent(Component):
     display_name = "All Inputs Component"
-    description = "A component with all input types available in Langflow."
-    documentation: str = "http://docs.langflow.org/components/all_inputs"
+    description = "A component with all input types available in Langinfra."
+    documentation: str = "http://docs.langinfra.org/components/all_inputs"
     icon = "code"
     name = "AllInputsComponent"
 

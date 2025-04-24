@@ -1,7 +1,7 @@
 import random
 
-from langflow.custom import CustomComponent
-from langflow.field_typing import Input
+from langinfra.custom import CustomComponent
+from langinfra.field_typing import Input
 
 
 class TestComponent(CustomComponent):

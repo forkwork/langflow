@@ -3,7 +3,7 @@ title: Logic
 slug: /components-logic
 ---
 
-# Logic components in Langflow
+# Logic components in Langinfra
 
 Logic components provide functionalities for routing, conditional processing, and flow management.
 
@@ -17,7 +17,7 @@ The **File** component loads text files from your local machine, and then the **
 The **Loop** component passes each `Data` object to a **Prompt** to be summarized.
 
 When the **Loop** component runs out of `Data`, the **Done** loop activates, which counts the number of pages and summarizes their tone with another **Prompt**.
-This is represented in Langflow by connecting the Parse Data component's **Data List** output to the Loop component's `Data` loop input.
+This is represented in Langinfra by connecting the Parse Data component's **Data List** output to the Loop component's `Data` loop input.
 
 ![Sample Flow looping summarizer](/img/loop-text-summarizer.png)
 
@@ -73,7 +73,7 @@ All options respect the `case_sensitive` setting except **regex**.
 ## Data Conditional Router
 
 :::important
-This component is in **Legacy**, which means it is no longer in active development as of Langflow version 1.3.
+This component is in **Legacy**, which means it is no longer in active development as of Langinfra version 1.3.
 :::
 
 This component routes `Data` objects based on a condition applied to a specified key, including boolean validation. It can process either a single Data object or a list of Data objects.
@@ -119,7 +119,7 @@ The following actions occur when processing a list of Data objects:
 ## Flow as tool {#flow-as-tool}
 
 :::important
-This component is deprecated as of Langflow version 1.1.2.
+This component is deprecated as of Langinfra version 1.1.2.
 Instead, use the [Run flow component](/components-logic#run-flow)
 :::
 
@@ -211,7 +211,7 @@ This component forwards the input message, unchanged.
 
 ## Run flow
 
-This component allows you to run any flow stored in your Langflow database without opening the flow editor.
+This component allows you to run any flow stored in your Langinfra database without opening the flow editor.
 
 The Run Flow component can also be used as a tool when connected to an [Agent](/components-agents). The `name` and `description` metadata that the Agent uses to register the tool are created automatically.
 
@@ -244,7 +244,7 @@ Your flow should now look like this:
 ## Sub flow
 
 :::important
-This component is deprecated as of Langflow version 1.1.2.
+This component is deprecated as of Langinfra version 1.1.2.
 Instead, use the [Run flow component](/components-logic#run-flow)
 :::
 

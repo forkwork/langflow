@@ -2,8 +2,8 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 from composio import Action
-from langflow.components.composio.gmail_composio import ComposioGmailAPIComponent
-from langflow.schema.dataframe import DataFrame
+from langinfra.components.composio.gmail_composio import ComposioGmailAPIComponent
+from langinfra.schema.dataframe import DataFrame
 
 from tests.base import DID_NOT_EXIST, ComponentTestBaseWithoutClient
 
@@ -19,7 +19,7 @@ class MockAction:
 class TestGmailComponent(ComponentTestBaseWithoutClient):
     @pytest.fixture(autouse=True)
     def mock_composio_toolset(self):
-        with patch("langflow.base.composio.composio_base.ComposioToolSet", MockComposioToolSet):
+        with patch("langinfra.base.composio.composio_base.ComposioToolSet", MockComposioToolSet):
             yield
 
     @pytest.fixture
@@ -185,9 +185,7 @@ class TestGmailComponent(ComponentTestBaseWithoutClient):
                         break
                 else:
                     # If none of the expected columns are found, check if data is in the DataFrame
-                    assert any(
-                        "Test Email" in str(cell) for cell in result.values.flat if hasattr(cell, "__contains__")
-                    )
+                    assert any("Test Email" in str(cell) for cell in result.values.flat if hasattr(cell, "__contains__"))
             else:
                 # If the DataFrame structure is different, just check for some expected content
                 assert "Test Email" in str(result)

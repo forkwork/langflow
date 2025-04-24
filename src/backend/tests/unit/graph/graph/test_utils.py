@@ -1,7 +1,7 @@
 import copy
 
 import pytest
-from langflow.graph.graph import utils
+from langinfra.graph.graph import utils
 
 
 @pytest.fixture
@@ -673,13 +673,9 @@ def test_get_sorted_vertices_with_complex_cycle(graph_with_loop):
     # When is_cyclic is True and start_vertex_id is provided:
     # 1. The first layer will contain vertices with no predecessors and vertices that are part of the cycle
     # 2. This is because the cycle vertices are treated as having no dependencies in the initial sort
-    assert "OpenAI Embeddings" in first_layer, (
-        "Vertex with no predecessors 'OpenAI Embeddings' should be in first layer"
-    )
+    assert "OpenAI Embeddings" in first_layer, "Vertex with no predecessors 'OpenAI Embeddings' should be in first layer"
     assert "Playlist Extractor" in first_layer, "Input vertex 'Playlist Extractor' should be in first layer"
-    assert len(first_layer) == 2, (
-        f"First layer should contain exactly 4 vertices, got {len(first_layer)}: {first_layer}"
-    )
+    assert len(first_layer) == 2, f"First layer should contain exactly 4 vertices, got {len(first_layer)}: {first_layer}"
 
     # Verify that the remaining layers contain the rest of the vertices in the correct order
     # The graph structure shows:
@@ -748,14 +744,10 @@ def test_get_sorted_vertices_with_stop_at_chroma(graph_with_loop):
     # When is_cyclic is True and we have a stop component:
     # 1. The first layer will contain vertices with no predecessors and vertices that are part of the cycle
     # 2. This is because the cycle vertices are treated as having no dependencies in the initial sort
-    assert "OpenAI Embeddings" in first_layer, (
-        "Vertex with no predecessors 'OpenAI Embeddings' should be in first layer"
-    )
+    assert "OpenAI Embeddings" in first_layer, "Vertex with no predecessors 'OpenAI Embeddings' should be in first layer"
     assert "Playlist Extractor" in first_layer, "Input vertex 'Playlist Extractor' should be in first layer"
 
-    assert len(first_layer) == 2, (
-        f"First layer should contain exactly 4 vertices, got {len(first_layer)}: {first_layer}"
-    )
+    assert len(first_layer) == 2, f"First layer should contain exactly 4 vertices, got {len(first_layer)}: {first_layer}"
 
     # Verify that the remaining layers contain the rest of the vertices in the correct order
     # The graph structure shows:

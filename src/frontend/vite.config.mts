@@ -14,11 +14,11 @@ import {
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
-  const envLangflowResult = dotenv.config({
+  const envLanginfraResult = dotenv.config({
     path: path.resolve(__dirname, "../../.env"),
   });
 
-  const envLangflow = envLangflowResult.parsed || {};
+  const envLanginfra = envLanginfraResult.parsed || {};
 
   const apiRoutes = API_ROUTES || ["^/api/v1/", "^/api/v2/", "/health"];
 
@@ -44,14 +44,14 @@ export default defineConfig(({ mode }) => {
     },
     define: {
       "process.env.BACKEND_URL": JSON.stringify(
-        envLangflow.BACKEND_URL ?? "http://127.0.0.1:7860",
+        envLanginfra.BACKEND_URL ?? "http://127.0.0.1:7860",
       ),
       "process.env.ACCESS_TOKEN_EXPIRE_SECONDS": JSON.stringify(
-        envLangflow.ACCESS_TOKEN_EXPIRE_SECONDS ?? 60,
+        envLanginfra.ACCESS_TOKEN_EXPIRE_SECONDS ?? 60,
       ),
-      "process.env.CI": JSON.stringify(envLangflow.CI ?? false),
-      "process.env.LANGFLOW_AUTO_LOGIN": JSON.stringify(
-        envLangflow.LANGFLOW_AUTO_LOGIN ?? true,
+      "process.env.CI": JSON.stringify(envLanginfra.CI ?? false),
+      "process.env.LANGINFRA_AUTO_LOGIN": JSON.stringify(
+        envLanginfra.LANGINFRA_AUTO_LOGIN ?? true,
       ),
     },
     plugins: [react(), svgr(), tsconfigPaths()],

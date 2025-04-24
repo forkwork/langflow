@@ -1,24 +1,24 @@
 services:
   # A Docker web service
   - type: web
-    name: langflow
+    name: langinfra
     runtime: docker
     dockerfilePath: ./docker/render.Dockerfile
-    repo: https://github.com/langflow-ai/langflow
+    repo: https://github.com/langinfra-ai/langinfra
     branch: main
     plan: standard
     healthCheckPath: /health_check
     autoDeploy: false
     envVars:
-      - key: LANGFLOW_DATABASE_URL
-        value: sqlite:////app/data/.cache/langflow/langflow.db
-      - key: LANGFLOW_HOST
+      - key: LANGINFRA_DATABASE_URL
+        value: sqlite:////app/data/.cache/langinfra/langinfra.db
+      - key: LANGINFRA_HOST
         value: 0.0.0.0
-      - key: LANGFLOW_PORT
+      - key: LANGINFRA_PORT
         # default render port https://docs.render.com/web-services#port-binding
         value: 10000
-      - key: LANGFLOW_LOG_LEVEL
+      - key: LANGINFRA_LOG_LEVEL
         value: INFO
     disk:
-      name: langflow-data
+      name: langinfra-data
       mountPath: /app/data

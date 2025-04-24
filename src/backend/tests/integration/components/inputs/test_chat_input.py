@@ -1,6 +1,6 @@
-from langflow.components.inputs import ChatInput
-from langflow.memory import aget_messages
-from langflow.schema.message import Message
+from langinfra.components.inputs import ChatInput
+from langinfra.memory import aget_messages
+from langinfra.schema.message import Message
 
 from tests.integration.utils import run_single_component
 
@@ -20,9 +20,7 @@ async def test_default():
 
 
 async def test_sender():
-    outputs = await run_single_component(
-        ChatInput, inputs={"sender": "Machine", "sender_name": "AI"}, run_input="hello"
-    )
+    outputs = await run_single_component(ChatInput, inputs={"sender": "Machine", "sender_name": "AI"}, run_input="hello")
     assert isinstance(outputs["message"], Message)
     assert outputs["message"].text == "hello"
     assert outputs["message"].sender == "Machine"

@@ -3,31 +3,31 @@ title: Install custom dependencies
 slug: /install-custom-dependencies
 ---
 
-To install custom dependencies in your Langflow environment, add them with your package manager.
+To install custom dependencies in your Langinfra environment, add them with your package manager.
 
 ## Create a virtual environment for local testing
 
 When testing locally, use a virtual environment to isolate your dependencies and prevent conflicts with other Python projects.
 
-For example, if you want to experiment with `matplotlib` with Langflow:
+For example, if you want to experiment with `matplotlib` with Langinfra:
 
 ```bash
 # Create and activate a virtual environment
-uv venv YOUR_LANGFLOW_VENV
-source YOUR_LANGFLOW_VENV/bin/activate
+uv venv YOUR_LANGINFRA_VENV
+source YOUR_LANGINFRA_VENV/bin/activate
 
-# Install langflow and your additional dependency
-uv pip install langflow matplotlib
+# Install langinfra and your additional dependency
+uv pip install langinfra matplotlib
 ```
 
-If you're working within a cloned Langflow repository, add dependencies with `uv add` because there is already a `pyproject.toml` file for uv to reference.
+If you're working within a cloned Langinfra repository, add dependencies with `uv add` because there is already a `pyproject.toml` file for uv to reference.
 ```bash
-uv add langflow matplotlib
+uv add langinfra matplotlib
 ```
 
-## Add dependencies to the Langflow project
+## Add dependencies to the Langinfra project
 
-When contributing to Langflow itself, add dependencies to the project's configuration. Langflow uses a workspace with two packages:
+When contributing to Langinfra itself, add dependencies to the project's configuration. Langinfra uses a workspace with two packages:
 
 * The `main` package (root level): For end-user features and main application code
 * The `base` package (in `src/backend/base`): For core functionality and shared code

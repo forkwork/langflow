@@ -7,17 +7,17 @@ const { remarkCodeHike } = require("@code-hike/mdx");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Langflow Documentation",
+  title: "Langinfra Documentation",
   tagline:
-    "Langflow is a low-code app builder for RAG and multi-agent AI applications.",
+    "Langinfra is a low-code app builder for RAG and multi-agent AI applications.",
   favicon: "img/favicon.ico",
-  url: "https://docs.langflow.org",
+  url: "https://docs.langinfra.org",
   baseUrl: process.env.BASE_URL ? process.env.BASE_URL : "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   onBrokenAnchors: "warn",
-  organizationName: "langflow-ai",
-  projectName: "langflow",
+  organizationName: "langinfra-ai",
+  projectName: "langinfra",
   trailingSlash: false,
   staticDirectories: ["static"],
   i18n: {
@@ -97,9 +97,9 @@ const config = {
           {
             to: "/",
             from: [
-              "/whats-new-a-new-chapter-langflow",
-              "/👋 Welcome-to-Langflow",
-              "/getting-started-welcome-to-langflow",
+              "/whats-new-a-new-chapter-langinfra",
+              "/👋 Welcome-to-Langinfra",
+              "/getting-started-welcome-to-langinfra",
               "/guides-new-to-llms"
             ],
           },
@@ -235,22 +235,22 @@ const config = {
       navbar: {
         hideOnScroll: true,
         logo: {
-          alt: "Langflow",
-          src: "img/langflow-logo-black.svg",
-          srcDark: "img/langflow-logo-white.svg",
+          alt: "Langinfra",
+          src: "img/langinfra-logo-black.svg",
+          srcDark: "img/langinfra-logo-white.svg",
         },
         items: [
           // right
           {
             position: "right",
-            href: "https://github.com/langflow-ai/langflow",
+            href: "https://github.com/langinfra-ai/langinfra",
             className: "header-github-link",
             target: "_blank",
             rel: null,
           },
           {
             position: "right",
-            href: "https://twitter.com/langflow_ai",
+            href: "https://twitter.com/langinfra_ai",
             className: "header-twitter-link",
             target: "_blank",
             rel: null,
@@ -291,7 +291,7 @@ const config = {
         appId: 'UZK6BDPCVY',
         // public key, safe to commit
         apiKey: 'adbd7686dceb1cd510d5ce20d04bf74c',
-        indexName: 'langflow',
+        indexName: 'langinfra',
         contextualSearch: true,
         searchParameters: {},
         searchPagePath: 'search',

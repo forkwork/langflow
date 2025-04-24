@@ -5,13 +5,13 @@ from unittest.mock import MagicMock
 from uuid import uuid4
 
 import pytest
-from langflow.custom.custom_component.component import Component
-from langflow.events.event_manager import EventManager
-from langflow.schema.content_block import ContentBlock
-from langflow.schema.content_types import TextContent, ToolContent
-from langflow.schema.message import Message
-from langflow.schema.properties import Properties, Source
-from langflow.template.field.base import Output
+from langinfra.custom.custom_component.component import Component
+from langinfra.events.event_manager import EventManager
+from langinfra.schema.content_block import ContentBlock
+from langinfra.schema.content_types import TextContent, ToolContent
+from langinfra.schema.message import Message
+from langinfra.schema.properties import Properties, Source
+from langinfra.template.field.base import Output
 
 
 def blocking_cb(manager, event_type, data):

@@ -1,9 +1,9 @@
 ---
-title: Connect an Astra DB MCP server to Langflow
+title: Connect an Astra DB MCP server to Langinfra
 slug: /mcp-component-astra
 ---
 
-Use the [MCP server component](/components-tools#mcp-server) to connect Langflow to a [Datastax Astra DB MCP server](https://github.com/datastax/astra-db-mcp).
+Use the [MCP server component](/components-tools#mcp-server) to connect Langinfra to a [Datastax Astra DB MCP server](https://github.com/datastax/astra-db-mcp).
 
 1. Install an LTS release of [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 2. Create an [OpenAI](https://platform.openai.com/) API key.
@@ -21,15 +21,15 @@ env ASTRA_DB_APPLICATION_TOKEN=ASTRA_TOKEN ASTRA_DB_API_ENDPOINT=ASTRA_ENDPOINT 
 ```
 
 :::important
-Langflow passes environment variables from the `.env` file to MCP, but not global variables declared in the UI.
-To add the values for `ASTRA_DB_APPLICATION_TOKEN` and `ASTRA_DB_API_ENDPOINT` as global variables, add them to Langflow's `.env` file at startup.
+Langinfra passes environment variables from the `.env` file to MCP, but not global variables declared in the UI.
+To add the values for `ASTRA_DB_APPLICATION_TOKEN` and `ASTRA_DB_API_ENDPOINT` as global variables, add them to Langinfra's `.env` file at startup.
 For more information, see [global variables](/configuration-global-variables).
 :::
 
 8. In the **Agent** component, add your **OpenAI API key**.
 9. Open the **Playground**, and then ask the agent, `What collections are available?`
 
-Since Langflow is connected to your Astra DB database through the MCP, the agent chooses the correct tool and connects to your database to retrieve the answer.
+Since Langinfra is connected to your Astra DB database through the MCP, the agent chooses the correct tool and connects to your database to retrieve the answer.
 ```text
 The available collections in your database are:
 collection_002

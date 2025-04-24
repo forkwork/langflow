@@ -5,7 +5,7 @@ slug: /components-tools
 
 import Icon from "@site/src/components/icon";
 
-# Tool components in Langflow
+# Tool components in Langinfra
 
 Tools are typically connected to agent components at the **Tools** port. Agents use LLMs as a reasoning engine to decide which of the connected tool components to use to solve a problem.
 
@@ -143,7 +143,7 @@ This component allows you to evaluate basic arithmetic expressions. It supports 
 
 ## Combinatorial Reasoner
 
-This component runs Icosa's Combinatorial Reasoning (CR) pipeline on an input to create an optimized prompt with embedded reasons. Sign up for access here: https://forms.gle/oWNv2NKjBNaqqvCx6 
+This component runs Icosa's Combinatorial Reasoning (CR) pipeline on an input to create an optimized prompt with embedded reasons. Sign up for access here: https://forms.gle/oWNv2NKjBNaqqvCx6
 
 ### Inputs
 
@@ -223,7 +223,7 @@ This component allows you to call the Glean Search API.
 ## Google Search API
 
 :::important
-This component is in **Legacy**, which means it is no longer in active development as of Langflow version 1.3.
+This component is in **Legacy**, which means it is no longer in active development as of Langinfra version 1.3.
 :::
 
 This component allows you to call the Google Search API.
@@ -268,7 +268,7 @@ This component allows you to call the Serper.dev Google Search API.
 
 This component connects to a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server and exposes the MCP server's tools as tools.
 
-In addition to being an MCP client that can leverage MCP servers, Langflow is also an MCP server that exposes flows as tools through the `/api/v1/mcp/sse` API endpoint. For more information, see [MCP integrations](/integrations-mcp).
+In addition to being an MCP client that can leverage MCP servers, Langinfra is also an MCP server that exposes flows as tools through the `/api/v1/mcp/sse` API endpoint. For more information, see [MCP integrations](/integrations-mcp).
 
 To use the MCP server component with an agent component, follow these steps:
 
@@ -279,9 +279,9 @@ To use the MCP server component with an agent component, follow these steps:
 uvx mcp-server-fetch
 ```
 
-`uvx` is included with `uv` in the Langflow package.
+`uvx` is included with `uv` in the Langinfra package.
 To use `npx` server commands, you must first install an LTS release of [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
-For an example of starting `npx` MCP servers, see [Connect an Astra DB MCP server to Langflow](/mcp-component-astra).
+For an example of starting `npx` MCP servers, see [Connect an Astra DB MCP server to Langinfra](/mcp-component-astra).
 
 3. Click <Icon name="RefreshCw" aria-label="Refresh"/> to get the server's list of **Tools**.
 4. In the **Tool** field, select the server tool you want the component to use.
@@ -295,7 +295,7 @@ The flow looks similar to this:
 
 6. Open the **Playground**.
 Ask the agent to summarize recent tech news. The agent calls the MCP server function `fetch` and returns the summary.
-This confirms the MCP server is connected, and its tools are being used in Langflow.
+This confirms the MCP server is connected, and its tools are being used in Langinfra.
 
 For more information, see [MCP integrations](/integrations-mcp).
 
@@ -303,7 +303,7 @@ For more information, see [MCP integrations](/integrations-mcp).
 
 1. In the **MCP Server** component, select **SSE**.
 A default address appears in the **MCP SSE URL** field.
-2. In the **MCP SSE URL** field, modify the default address to point at the SSE endpoint of the Langflow server you're currently running.
+2. In the **MCP SSE URL** field, modify the default address to point at the SSE endpoint of the Langinfra server you're currently running.
 The default value is `http://localhost:7860/api/v1/mcp/sse`.
 3. In the **MCP Server** component, click <Icon name="RefreshCw" aria-label="Refresh"/> to retrieve the server's list of **Tools**.
 4. Click the **Tools** field.
@@ -328,14 +328,14 @@ The agent chooses the correct tool based on your query.
 
 ## MCP Tools (stdio)
 :::important
-This component is deprecated as of Langflow version 1.3.
+This component is deprecated as of Langinfra version 1.3.
 Instead, use the [MCP server component](/components-tools#mcp-server)
 :::
 
 
 ## MCP Tools (SSE)
 :::important
-This component is deprecated as of Langflow version 1.3.
+This component is deprecated as of Langinfra version 1.3.
 Instead, use the [MCP server component](/components-tools#mcp-server)
 :::
 
@@ -365,7 +365,7 @@ The component dynamically updates its configuration based on the provided Python
 ## Python REPL Tool
 
 :::important
-This component is in **Legacy**, which means it is no longer in active development as of Langflow version 1.3.
+This component is in **Legacy**, which means it is no longer in active development as of Langinfra version 1.3.
 :::
 
 This component creates a Python REPL (Read-Eval-Print Loop) tool for executing Python code.
@@ -424,7 +424,7 @@ This component creates a tool for searching using SearXNG, a metasearch engine.
 ## Search API
 
 :::important
-This component is in **Legacy**, which means it is no longer in active development as of Langflow version 1.3.
+This component is in **Legacy**, which means it is no longer in active development as of Langinfra version 1.3.
 :::
 
 This component calls the `searchapi.io` API. It can be used to search the web for information.
@@ -492,7 +492,7 @@ This component performs searches using the Tavily AI search engine, which is opt
 ## Wikidata
 
 :::important
-This component is in **Legacy**, which means it is no longer in active development as of Langflow version 1.3.
+This component is in **Legacy**, which means it is no longer in active development as of Langinfra version 1.3.
 :::
 
 This component performs a search using the Wikidata API.
@@ -514,7 +514,7 @@ This component performs a search using the Wikidata API.
 ## Wikipedia API
 
 :::important
-This component is in **Legacy**, which means it is no longer in active development as of Langflow version 1.3.
+This component is in **Legacy**, which means it is no longer in active development as of Langinfra version 1.3.
 :::
 
 This component creates a tool for searching and retrieving information from Wikipedia.
